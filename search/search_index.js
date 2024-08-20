@@ -1,0 +1,1 @@
+var __index = {"config":{"lang":["en"],"separator":"[\\s\\u200b\\-]","pipeline":["stemmer"]},"docs":[{"location":"index.html","title":"\u4e3b\u9875","text":""}]}
