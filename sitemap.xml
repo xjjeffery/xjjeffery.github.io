@@ -2,7 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://xjjeffery.github.io/index.html</loc>
-         <lastmod>2024-08-20</lastmod>
+         <lastmod>2024-08-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://xjjeffery.github.io/0voice/2204_cpp/network/01_network_io.html</loc>
+         <lastmod>2024-08-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
