@@ -485,6 +485,90 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#套接字类型与协议设置" class="md-nav__link">
+    <span class="md-ellipsis">
+      套接字类型与协议设置
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="套接字类型与协议设置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#协议族" class="md-nav__link">
+    <span class="md-ellipsis">
+      协议族
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#套接字类型" class="md-nav__link">
+    <span class="md-ellipsis">
+      套接字类型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#最终协议的确定" class="md-nav__link">
+    <span class="md-ellipsis">
+      最终协议的确定
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#地址族与数据序列" class="md-nav__link">
+    <span class="md-ellipsis">
+      地址族与数据序列
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="地址族与数据序列">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#地址信息的表示" class="md-nav__link">
+    <span class="md-ellipsis">
+      地址信息的表示
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#网络字节序与地址变换" class="md-nav__link">
+    <span class="md-ellipsis">
+      网络字节序与地址变换
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#网络地址的初始化与分配" class="md-nav__link">
+    <span class="md-ellipsis">
+      网络地址的初始化与分配
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -542,6 +626,90 @@
   <a href="#客户端" class="md-nav__link">
     <span class="md-ellipsis">
       客户端
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#套接字类型与协议设置" class="md-nav__link">
+    <span class="md-ellipsis">
+      套接字类型与协议设置
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="套接字类型与协议设置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#协议族" class="md-nav__link">
+    <span class="md-ellipsis">
+      协议族
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#套接字类型" class="md-nav__link">
+    <span class="md-ellipsis">
+      套接字类型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#最终协议的确定" class="md-nav__link">
+    <span class="md-ellipsis">
+      最终协议的确定
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#地址族与数据序列" class="md-nav__link">
+    <span class="md-ellipsis">
+      地址族与数据序列
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="地址族与数据序列">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#地址信息的表示" class="md-nav__link">
+    <span class="md-ellipsis">
+      地址信息的表示
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#网络字节序与地址变换" class="md-nav__link">
+    <span class="md-ellipsis">
+      网络字节序与地址变换
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#网络地址的初始化与分配" class="md-nav__link">
+    <span class="md-ellipsis">
+      网络地址的初始化与分配
     </span>
   </a>
   
@@ -945,6 +1113,140 @@
 </div>
 <p>编译运行上述两个程序，先启动服务端的程序，再启动客户端的程序。此时客户端会收到服务端发来的数据，并且两个程序都会立即退出。</p>
 <p>上述两个程序使用 <code>read</code> 和 <code>write</code> 函数，是因为在 Linux 中，一切都是文件，socket 也是文件，因此可以使用文件相关的读写操作。而在 Windows 中，网络套接字和文件是有区别的，需要使用网络读写专用的函数 <code>recv</code> 和 <code>send</code> 来进行操作，这两个函数在 Linux 中也适用。</p>
+<h2 id="套接字类型与协议设置">套接字类型与协议设置<a class="headerlink" href="#套接字类型与协议设置" title="Permanent link">&para;</a></h2>
+<p>什么是协议(Protocol)，简单的说就是两个通信对象之间的一种通信方式，就比如我们人与人之间交流用中文，这就是一种协议(大家约定好的规则)。</p>
+<p>在前面提到过 <code>socket</code> 函数是用来创建套接字的，但是没有提到参数怎么用，此处做详细的分析。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/types.h&gt;</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/socket.h&gt;</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="c1">// domain：套接字中使用的协议族(protocol family)信息</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="c1">// type：套接字数据传输类型信息</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="c1">// protocol：计算机间通信中使用的协议信息</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="kt">int</span><span class="w"> </span><span class="nf">socket</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">domain</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">protocol</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="协议族">协议族<a class="headerlink" href="#协议族" title="Permanent link">&para;</a></h3>
+<p>套接字中使用的协议有很多，这些协议在一起统称为协议族，定义在 <code>sys/socket.h</code> 头文件中，协议族中的协议简单分为以下几类(这里只介绍常用的)：</p>
+<ul>
+<li><code>AF_INET</code>：IPv4 互联网协议族</li>
+<li><code>AF_INET6</code>：IPv6 互联网协议族</li>
+<li><code>AF_LOCAL/AF_UNIX</code>：本地通信的 UNIX 协议族</li>
+<li><code>AF_PACKET</code>：底层套接字的协议族</li>
+<li><code>AF_IPX</code>：IPX Novell 协议族</li>
+</ul>
+<p>套接字的协议类型是由第一个参数决定，选取上面的其中一个</p>
+<h3 id="套接字类型">套接字类型<a class="headerlink" href="#套接字类型" title="Permanent link">&para;</a></h3>
+<p>套接字类型是由第二个参数决定，来决定套接字的数传输方式，每一种协议都会由多种数据传输方式，下面以 <code>AF_INET</code> 来介绍两个具有代表性的数据传输方式：</p>
+<ul>
+<li><code>SOCK_STREAM</code>(面向连接的套接字)：面向连接，顾名思义就是必须要有连接才能进行数据传输，由以下几个特点，有点类似传送带传送物品<ul>
+<li>传输的过程中数据不会丢失</li>
+<li>按序传输数据</li>
+<li>传输的数据不存在数据边界</li>
+<li>套接字连接必须一一对应</li>
+</ul>
+</li>
+<li><code>SOCK_DRGAM</code>(面向消息的套接字)：顾名思义就是只管发，不管客户端是否有接收，有以下几个特点<ul>
+<li>强调快速传输而非传输顺序</li>
+<li>传输的数据可能丢失也可能损毁</li>
+<li>传输的数据没有边界</li>
+<li>限制每次传输的数据大小</li>
+</ul>
+</li>
+</ul>
+<h3 id="最终协议的确定">最终协议的确定<a class="headerlink" href="#最终协议的确定" title="Permanent link">&para;</a></h3>
+<p>套接字的最终协议以及数据传输方式是由最后一个参数确定的，但是我们一般默认为 0，除非出现数据传输方式相同但协议不同的场景才会对最后一个参数做改变。如基于 TCP 套接字和 UDP 套接字就可以写成如下的样子</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">tcp_socket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span><span class="w"> </span><span class="n">SOCK_STREAM</span><span class="p">,</span><span class="w"> </span><span class="n">IPPROTO_TCP</span><span class="p">);</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">udp_socket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span><span class="w"> </span><span class="n">SOCK_DGRAM</span><span class="p">,</span><span class="w"> </span><span class="n">IPPROTO_UDP</span><span class="p">);</span>
+</code></pre></div>
+<p>tcp 数据传输方式如下图所示</p>
+<p><a class="glightbox" href="assets/tcp_ip_network_programming/ch02/tcp_transport.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="assets/tcp_ip_network_programming/ch02/tcp_transport.png" /></a></p>
+<h2 id="地址族与数据序列">地址族与数据序列<a class="headerlink" href="#地址族与数据序列" title="Permanent link">&para;</a></h2>
+<p>IP(Internet Protocol) 是为收发网络数据而分配给计算机的值，可以通过这个 IP 找到指定的计算机，而端口是区分程序中创建的套接字而分配给套接字的序号。</p>
+<p>IP 地址分为两类，这两类地址的差别主要在于表示 IP 地址所用的字节数：</p>
+<ul>
+<li>IPv4(Internet Protocol version 4)：4 字节地址族</li>
+<li>IPv6(Internet Protocol version 6)：16 字节地址族，解决 2010 年前后 IP 地址耗尽的问题</li>
+</ul>
+<p>现在主要使用的还是 IPv4，其 4 字节内容会保存两个信息，分别是网络地址和主机地址，有以下四种方式表示</p>
+<p><a class="glightbox" href="assets/tcp_ip_network_programming/ch03/ipv4_addr_family.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="assets/tcp_ip_network_programming/ch03/ipv4_addr_family.png" /></a></p>
+<p>因此在局域网中的所有主机的网络地址是相同的，而主机地址是不同的，此时外网有主机需要发送数据到此局域网中的某个主机中，首先解析 IP 地址中的网络地址，然后在由该网路地址的路由器或交换机根据数据中的主机地址想目标主机传递数据。</p>
+<p>这 4 字节的 IP 地址信息是如何区分出来哪些字节是网络地址，哪些字节是主机地址，这是根据 IP 地址的边界来区分的，如：</p>
+<ul>
+<li>A 类地址的首字节范围：0~127</li>
+<li>B 类地址的首字节范围：128~191</li>
+<li>C 类地址的首字节范围：192~223</li>
+</ul>
+<p>有了 IP 就能区分计算机，但是还无法定位到主机主机终端具体程序，此时需要端口号来区分。端口号是与套接字一一对应的，因此无法将一个端口号分配给不同的套接字，这也是为什么前面不能以相同的端口号启动两次服务端。端口号是由 16 位构成，可分配的端口范围就为 0 ~ 65535。但 0 ~ 1023 是系统分配给特定程序的，所以我们使用的时候，要分配此范围之外的端口号。另外，虽然 TCP 套接字不能重复端口号，但是 UDP 和 TCP 不会共用套接字，所以两者是可以重复的。</p>
+<h3 id="地址信息的表示">地址信息的表示<a class="headerlink" href="#地址信息的表示" title="Permanent link">&para;</a></h3>
+<p>IP 地址信息在代码中是通过结构体来表示的，在结构体中需要说明地址族类型、IP 地址以及端口号等信息，其结构为</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr_in</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span><span class="n">sa_family_t</span><span class="w"> </span><span class="n">sin_family</span><span class="p">;</span><span class="w"> </span><span class="c1">// 地址族</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">  </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">sin_port</span><span class="p">;</span><span class="w">      </span><span class="c1">// 16 位 TCP/UDP 端口号</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">in_addr</span><span class="w"> </span><span class="n">sin_addr</span><span class="p">;</span><span class="c1">// 32 位 IP 地址</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">sin_zero</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span><span class="w">       </span><span class="c1">// 不使用</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="p">};</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="c1">//</span>
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="c1">// IPv4 Internet address</span>
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="c1">// This is an &#39;on-wire&#39; format structure.</span>
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="c1">//</span>
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">in_addr</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="w">  </span><span class="k">union</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">UCHAR</span><span class="w"> </span><span class="n">s_b1</span><span class="p">,</span><span class="n">s_b2</span><span class="p">,</span><span class="n">s_b3</span><span class="p">,</span><span class="n">s_b4</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="n">S_un_b</span><span class="p">;</span>
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">USHORT</span><span class="w"> </span><span class="n">s_w1</span><span class="p">,</span><span class="n">s_w2</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="n">S_un_w</span><span class="p">;</span>
+<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a><span class="w">    </span><span class="n">ULONG</span><span class="w"> </span><span class="n">S_addr</span><span class="p">;</span>
+<a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">S_un</span><span class="p">;</span>
+<a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a><span class="cp">#define s_addr  S_un.S_addr </span><span class="cm">/* can be used for most tcp &amp; ip code */</span>
+<a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a><span class="cp">#define s_host  S_un.S_un_b.s_b2    </span><span class="c1">// host on imp</span>
+<a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a><span class="cp">#define s_net   S_un.S_un_b.s_b1    </span><span class="c1">// network</span>
+<a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a><span class="cp">#define s_imp   S_un.S_un_w.s_w2    </span><span class="c1">// imp</span>
+<a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a><span class="cp">#define s_impno S_un.S_un_b.s_b4    </span><span class="c1">// imp #</span>
+<a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a><span class="cp">#define s_lh    S_un.S_un_b.s_b3    </span><span class="c1">// logical host</span>
+<a id="__codelineno-18-24" name="__codelineno-18-24" href="#__codelineno-18-24"></a><span class="p">}</span><span class="w"> </span><span class="n">IN_ADDR</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">PIN_ADDR</span><span class="p">,</span><span class="w"> </span><span class="n">FAR</span><span class="w"> </span><span class="o">*</span><span class="n">LPIN_ADDR</span><span class="p">;</span>
+</code></pre></div>
+<p>为什么 <code>bind</code> 函数需要的是 <code>sockaddr</code> 结构体变量地址，而我们却传递 <code>sockaddr_in</code> 结构体变量的地址，这是因为 <code>sockaddr</code> 将 IP 地址和端口等信息保存在一起，这种方式较为麻烦，从下面的结构定义可以看出</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span><span class="n">sa_family_t</span><span class="w"> </span><span class="n">sin_family</span><span class="p">;</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">sa_data</span><span class="p">[</span><span class="mi">14</span><span class="p">];</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="p">};</span>
+</code></pre></div>
+<h3 id="网络字节序与地址变换">网络字节序与地址变换<a class="headerlink" href="#网络字节序与地址变换" title="Permanent link">&para;</a></h3>
+<p>不同的 CPU 中，数据的保存方式是不同的，如 4 字节的整型值 1 可以用 二进制表示如下</p>
+<p>00000000 00000000 00000000 00000001</p>
+<p>有些 CPU 则会倒序保存，保存形式如下</p>
+<p>00000001 00000000 00000000 00000000</p>
+<p>这两种方式就是所谓的大端序和小端序：</p>
+<ul>
+<li>大端序(Big Endian)：高位字节序存放到低位地址</li>
+<li>小端序(Little Endian)：高位字节序存放到高位地址</li>
+</ul>
+<p>如下所示：</p>
+<p><a class="glightbox" href="assets/tcp_ip_network_programming/ch03/edian.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="assets/tcp_ip_network_programming/ch03/edian.png" /></a></p>
+<p>如果两个计算机采用的是不同的字节序，则通过网络传输数据，解析后的数据是错误的，如 0x1234 小端序的机器发送到大端序解析后就是 0x3412。因此，在使用网络传输数据时约定统一方式，这种约定称为网络字节序 —— 大端序。</p>
+<p>也就是说，在进行网络传输时，小端序的机器必须进行转换，将数据转换成大端序，有以下几个转换函数：</p>
+<ul>
+<li><code>unsigned short htons(unsigned short);</code></li>
+<li><code>unsigned short ntons(unsigned short);</code></li>
+<li><code>unsigned long htonl(unsigned long);</code></li>
+<li><code>unsigned long ntonl(unsigned long);</code></li>
+</ul>
+<p>其中 h 代表主机字节序，n 代表网络网络字节序，这也是为什么在填充 <code>sockaddr_in</code> 结构体时要换成网络字节序。但是，不管你的主机是什么字节序，在编写代码时，都建议经过主机字节序转换为网络字节序的过程。</p>
+<h3 id="网络地址的初始化与分配">网络地址的初始化与分配<a class="headerlink" href="#网络地址的初始化与分配" title="Permanent link">&para;</a></h3>
+<p>我们在之前的使用中可以知道，<code>sockaddr_in</code> 保存的地址信息是 32 位整型数，因此我们需要将字符串方式表示的 IP 转换成 32 位整数型的数据，这时需要用到以下两个函数</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;arpa/inet.h&gt;</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="c1">// 成功返回 32 位大端序整数型值，失败返回 INADDR_NONE，此函数会紫红进行网络字节序转换</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="n">int_addr_t</span><span class="w"> </span><span class="nf">inet_addr</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">string</span><span class="p">);</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="c1">// 成功返回 1，失败返回 0</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="kt">int</span><span class="w"> </span><span class="nf">inet_aton</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">in_addr</span><span class="w"> </span><span class="o">*</span><span class="n">addr</span><span class="p">);</span>
+</code></pre></div>
+<p>除此之外，也可以使用函数将整数型的地址转换成字符串型的地址</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;arpa/inet.h&gt;</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="c1">// 成功返回转换的字符串地址，失败返回 -1</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">inet_ntoa</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">in_addr</span><span class="w"> </span><span class="n">adr</span><span class="p">);</span>
+</code></pre></div>
+<p>了解了这么多，那么网络地址信息是如何与套接字绑定的呢 —— 就是通过 <code>bind</code> 函数，如果此函数调用成功，就是将网络地址信息分配到第一个参数指定套接字中。在 Windows 中使用这些函数的方式与 Linxu 基本相同，这里不再赘述。</p>
 
 <!-- Source file information -->
 
