@@ -10,26 +10,24 @@
         <meta name="author" content="xjjeffery">
       
       
-        <link rel="canonical" href="https://xjjeffery.github.io/index.html">
+        <link rel="canonical" href="https://xjjeffery.github.io/linux/linux_system_programming/unix_system_overview.html">
       
       
       
-        <link rel="next" href="0voice/2404_cpp/network/network_io_server.html">
       
-      
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
     
     
       
-        <title>xjjeffery 的个人网站</title>
+        <title>Linux 系统编程 - xjjeffery 的个人网站</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.3cba04c6.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,16 +48,16 @@
       
     
     
-      <link rel="stylesheet" href="stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
     
-   <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -68,7 +66,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -87,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#主页" class="md-skip">
+        <a href="#linux-系统编程" class="md-skip">
           跳转至
         </a>
       
@@ -103,7 +101,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="index.html" title="xjjeffery 的个人网站" class="md-header__button md-logo" aria-label="xjjeffery 的个人网站" data-md-component="logo">
+    <a href="../../index.html" title="xjjeffery 的个人网站" class="md-header__button md-logo" aria-label="xjjeffery 的个人网站" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -123,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              主页
+              Linux 系统编程
             
           </span>
         </div>
@@ -243,7 +241,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="index.html" title="xjjeffery 的个人网站" class="md-nav__button md-logo" aria-label="xjjeffery 的个人网站" data-md-component="logo">
+    <a href="../../index.html" title="xjjeffery 的个人网站" class="md-nav__button md-logo" aria-label="xjjeffery 的个人网站" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -270,19 +268,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="index.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -291,7 +280,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -383,7 +371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="0voice/2404_cpp/network/network_io_server.html" class="md-nav__link">
+      <a href="../../0voice/2404_cpp/network/network_io_server.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -404,7 +392,7 @@
   
   
     <li class="md-nav__item">
-      <a href="0voice/2404_cpp/network/network_io_multi_plexing.html" class="md-nav__link">
+      <a href="../../0voice/2404_cpp/network/network_io_multi_plexing.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -440,7 +428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="readed_books/tcp_ip_network_programming.html" class="md-nav__link">
+      <a href="../../readed_books/tcp_ip_network_programming.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -501,7 +489,7 @@
   
   
     <li class="md-nav__item">
-      <a href="linux/linux_system_programming/standard_io.html" class="md-nav__link">
+      <a href="standard_io.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -522,7 +510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="linux/linux_system_programming/file_io.html" class="md-nav__link">
+      <a href="file_io.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -563,6 +551,59 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gcc" class="md-nav__link">
+    <span class="md-ellipsis">
+      GCC
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#make--makefile" class="md-nav__link">
+    <span class="md-ellipsis">
+      make &amp; Makefile
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#man-manual" class="md-nav__link">
+    <span class="md-ellipsis">
+      man manual
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#出错处理" class="md-nav__link">
+    <span class="md-ellipsis">
+      出错处理
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -588,8 +629,83 @@
 
 
 <!-- Page content -->
-<h1 id="主页">主页<a class="headerlink" href="#主页" title="Permanent link">&para;</a></h1>
-<p>本网站为 xjjeffery 个人学习工作的总结，记录学习和工作中遇到的各种问题和相关技术的研究，欢迎大家阅读学习并交流。</p>
+<h1 id="linux-系统编程">Linux 系统编程<a class="headerlink" href="#linux-系统编程" title="Permanent link">&para;</a></h1>
+<p><strong>学习时间</strong>：2023 年 4 月 15 日</p>
+<p><strong>使用环境</strong>：Ubuntu 20.04 + gcc 编译器 + neovim 编辑器</p>
+<p><strong>学习来源</strong>：<a href="https://www.bilibili.com/video/BV1yJ411S7r6?">Linux 系统编程(李慧琴)</a></p>
+<p><strong>参考书籍</strong>：《Unix 环境高级编程》</p>
+<h2 id="gcc">GCC<a class="headerlink" href="#gcc" title="Permanent link">&para;</a></h2>
+<h2 id="make--makefile"><code>make</code> &amp; Makefile<a class="headerlink" href="#make--makefile" title="Permanent link">&para;</a></h2>
+<h2 id="man-manual">man manual<a class="headerlink" href="#man-manual" title="Permanent link">&para;</a></h2>
+<h2 id="_1"><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="出错处理">出错处理<a class="headerlink" href="#出错处理" title="Permanent link">&para;</a></h2>
+<p>当 Unix 系统函数出错时，通常会返回一个负值，而且整型变量 <code>errno</code> 通常被设置为具有特定信息的值。文件 <code>&lt;errno.h&gt;</code> 中定义了 <code>errno</code> 以及可以赋与它的各种变量。POSIX 和 ISO C 将 <code>errno</code> 定义为一个符号，它扩展成为一个可修改的整型左值。它可以是一个包含出错编号的整数，也可以是一个返回出错编号指针的函数。以前的定义是：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">extern</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">errno</span><span class="p">;</span>
+</code></pre></div>
+<p>但是在支持线程的环境中，多线程共享进程地址空间，每个线程都有属于它自己的局部 <code>errno</code> 以避免一个线程干扰另一个线程。例如，Linux 支持多线程存取 <code>errno</code>，将其定义为：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">extern</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="nf">__errno_location</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="cp">#define errno (*__errno_location())</span>
+</code></pre></div>
+<p>对于 <code>errno</code> 应当注意两条规则：</p>
+<ol>
+<li>如果没有出错，其值不会被例程清除。因此，仅当函数的返回值指明出错时，才检验其值。</li>
+<li>任何函数都不会将 <code>errno</code> 值设置为 0，而且在 <code>&lt;errno.h&gt;</code> 中定义的所有常量都不为 0。</li>
+</ol>
+<p>C 标准定义了两个函数用于打印错误信息：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">perror</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">);</span><span class="w"> </span><span class="c1">// 在标准错误中生成一条信息，以 s 开头，然后是一个冒号加空格，</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">                            </span><span class="c1">// 接着是 errno 值对应的出错消息</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">strerror</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">errnum</span><span class="p">);</span><span class="w"> </span><span class="c1">// 将 errnum 映射为一个出错消息字符串，并且返回此字符串的指针</span>
+</code></pre></div>
+<p><strong>代码使用示例</strong>：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;errno.h&gt;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="s">&quot;tmp&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;r&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fp</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="c1">// 方法一：出错的原因不直观</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="c1">// fprintf(stderr, &quot;open file failed : errno = %d\n&quot;, errno);  // 输出 open file failed : errno = 2</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="c1">// 方法二：perror 根据 errno 打印对于的错误信息，参数是用户自定义的字符串</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="c1">//         函数原型为 void perror(const char* s);</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="c1">// perror(&quot;open file failed&quot;); // 输出 open file failed: No such file or directory</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="c1">// 方法三：使用 strerror 将某个 errno 转换成对应的错误信息</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span><span class="c1">//         函数原型 char *strerror(int errnum);</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;open file failed: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">strerror</span><span class="p">(</span><span class="n">errno</span><span class="p">));</span><span class="w"> </span><span class="c1">// 输出 open file failed: No such file or directory</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">    </span><span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">  </span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;OK!&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">  </span><span class="n">fopen</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="p">}</span>
+</code></pre></div>
+<p>具体错误类型如下所示(只展示部分)：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cm">/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="cp">#ifndef _ASM_GENERIC_ERRNO_BASE_H</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="cp">#define _ASM_GENERIC_ERRNO_BASE_H</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="cp">#define EPERM    1  </span><span class="cm">/* Operation not permitted */</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="cp">#define ENOENT   2  </span><span class="cm">/* No such file or directory */</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="cp">#define ESRCH    3  </span><span class="cm">/* No such process */</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="cp">#define EINTR    4  </span><span class="cm">/* Interrupted system call */</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="cp">#define EIO      5  </span><span class="cm">/* I/O error */</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="cp">#define ENXIO    6  </span><span class="cm">/* No such device or address */</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="cp">#define E2BIG    7  </span><span class="cm">/* Argument list too long */</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="cp">#define ENOEXEC  8  </span><span class="cm">/* Exec format error */</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="cp">#define EBADF    9  </span><span class="cm">/* Bad file number */</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="cp">#define ECHILD   10 </span><span class="cm">/* No child processes */</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="c1">// ...</span>
+</code></pre></div>
 
 <!-- Source file information -->
 
@@ -610,27 +726,6 @@ aria-label="页脚"
 
 
 <!-- Link to next page -->
-
-  
-  <a
-    href="0voice/2404_cpp/network/network_io_server.html"
-    class="md-footer__link md-footer__link--next"
-    aria-label="下一页: 网络 I/O 之服务器端"
-    rel="next"
-  >
-    <div class="md-footer__title">
-      <span class="md-footer__direction">
-        下一页
-      </span>
-      <div class="md-ellipsis">
-        网络 I/O 之服务器端
-      </div>
-    </div>
-    <div class="md-footer__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-    </div>
-  </a>
 
 </nav>
 
@@ -677,12 +772,12 @@ aria-label="页脚"
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
-        <script src="javascripts/mathjax.js"></script>
+        <script src="../../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
