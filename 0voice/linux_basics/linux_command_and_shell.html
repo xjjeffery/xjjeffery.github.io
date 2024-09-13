@@ -1,0 +1,1657 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="xjjeffery">
+      
+      
+        <link rel="canonical" href="https://xjjeffery.github.io/0voice/linux_basics/linux_command_and_shell.html">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
+    
+    
+      
+        <title>Linux 常用命令和 Shell 编程 - xjjeffery 的个人网站</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#linux-常用命令和-shell-编程" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../index.html" title="xjjeffery 的个人网站" class="md-header__button md-logo" aria-label="xjjeffery 的个人网站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            xjjeffery 的个人网站
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Linux 常用命令和 Shell 编程
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo"  aria-label="浅色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="浅色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="深色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="深色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/xjjeffery/myblogs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    xjjeffery/myblogs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="xjjeffery 的个人网站" class="md-nav__button md-logo" aria-label="xjjeffery 的个人网站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    xjjeffery 的个人网站
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/xjjeffery/myblogs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    xjjeffery/myblogs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    主页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Linux 系统编程
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Linux 系统编程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/linux_system_programming/standard_io.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    标准 I/O
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/linux_system_programming/file_io.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    文件 I/O
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/linux_system_programming/files_and_directories.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    文件和目录
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/linux_system_programming/system_data_files_and_info.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    系统数据文件和信息
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/linux_system_programming/process_environment.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    进程环境
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Linux C/C++ 高级开发
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Linux C/C++ 高级开发
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    高性能网络设计专栏
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            高性能网络设计专栏
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2404_cpp/network/network_io_server.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    网络 I/O 之服务器端
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2404_cpp/network/network_io_multi_plexing.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    网络 I/O 之多路复用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#linux-常用命令" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux 常用命令
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Linux 常用命令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux-常用处理目录命令" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux 常用处理目录命令
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Linux 常用处理目录命令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ls列出目录" class="md-nav__link">
+    <span class="md-ellipsis">
+      ls(列出目录)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cd切换目录" class="md-nav__link">
+    <span class="md-ellipsis">
+      cd(切换目录)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pwd显示当前目录" class="md-nav__link">
+    <span class="md-ellipsis">
+      pwd(显示当前目录)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mkdir创建一个新目录" class="md-nav__link">
+    <span class="md-ellipsis">
+      mkdir(创建一个新目录)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rmdir删除一个空目录" class="md-nav__link">
+    <span class="md-ellipsis">
+      rmdir(删除一个空目录)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cp复制文件或目录" class="md-nav__link">
+    <span class="md-ellipsis">
+      cp(复制文件或目录)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rm移除文件或目录" class="md-nav__link">
+    <span class="md-ellipsis">
+      rm(移除文件或目录)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mv移动文件与目录修改名称" class="md-nav__link">
+    <span class="md-ellipsis">
+      mv(移动文件与目录/修改名称)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux-文件内容查看" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux 文件内容查看
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Linux 文件内容查看">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cat文本输出" class="md-nav__link">
+    <span class="md-ellipsis">
+      cat(文本输出)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tac与-cat-相反" class="md-nav__link">
+    <span class="md-ellipsis">
+      tac(与 cat 相反)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nl显示行号" class="md-nav__link">
+    <span class="md-ellipsis">
+      nl(显示行号)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#more一页一页翻动" class="md-nav__link">
+    <span class="md-ellipsis">
+      more(一页一页翻动)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#less" class="md-nav__link">
+    <span class="md-ellipsis">
+      less
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#head" class="md-nav__link">
+    <span class="md-ellipsis">
+      head
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tail" class="md-nav__link">
+    <span class="md-ellipsis">
+      tail
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell-编程" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shell 编程
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Shell 编程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shell-变量" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shell 变量
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Shell 变量">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#使用变量" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用变量
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#只读变量" class="md-nav__link">
+    <span class="md-ellipsis">
+      只读变量
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#删除变量" class="md-nav__link">
+    <span class="md-ellipsis">
+      删除变量
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#变量类型" class="md-nav__link">
+    <span class="md-ellipsis">
+      变量类型
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shell-字符串" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shell 字符串
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Shell 字符串">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#单引号" class="md-nav__link">
+    <span class="md-ellipsis">
+      单引号
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#双引号" class="md-nav__link">
+    <span class="md-ellipsis">
+      双引号
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#拼接字符串" class="md-nav__link">
+    <span class="md-ellipsis">
+      拼接字符串
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#获取字符长度" class="md-nav__link">
+    <span class="md-ellipsis">
+      获取字符长度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#提取子字符串" class="md-nav__link">
+    <span class="md-ellipsis">
+      提取子字符串
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#查找字符位置" class="md-nav__link">
+    <span class="md-ellipsis">
+      查找字符位置
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shell-数组" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shell 数组
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Shell 数组">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#定义数组" class="md-nav__link">
+    <span class="md-ellipsis">
+      定义数组
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#读取数组" class="md-nav__link">
+    <span class="md-ellipsis">
+      读取数组
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#获取数组的长度" class="md-nav__link">
+    <span class="md-ellipsis">
+      获取数组的长度
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shell-注释" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shell 注释
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shell-传递参数" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shell 传递参数
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Shell 传递参数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#特殊字符" class="md-nav__link">
+    <span class="md-ellipsis">
+      特殊字符
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-与--的区别" class="md-nav__link">
+    <span class="md-ellipsis">
+      $* 与 $@ 的区别
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shell-基本运算符" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shell 基本运算符
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  <!-- Tags -->
+
+
+<!-- Actions -->
+<!-- Actions -->
+
+
+  <!-- Edit button -->
+  
+
+  <!-- View button -->
+  
+
+
+<!-- Page content -->
+<h1 id="linux-常用命令和-shell-编程">Linux 常用命令和 Shell 编程<a class="headerlink" href="#linux-常用命令和-shell-编程" title="Permanent link">&para;</a></h1>
+<h2 id="linux-常用命令">Linux 常用命令<a class="headerlink" href="#linux-常用命令" title="Permanent link">&para;</a></h2>
+<p>在 Linux 环境开发，需要了解 8 个目录操作命令和 5 个文件操作命令，这 13 个命令能解决基本的开发需求，更多的 Linux 操作命令，可以阅读《鸟哥的 Linux 私房菜》进一步学习。</p>
+<h3 id="linux-常用处理目录命令">Linux 常用处理目录命令<a class="headerlink" href="#linux-常用处理目录命令" title="Permanent link">&para;</a></h3>
+<h4 id="ls列出目录"><code>ls</code>(列出目录)<a class="headerlink" href="#ls列出目录" title="Permanent link">&para;</a></h4>
+<p><code>ls</code> 命令相当于我们在 Windows 中进入到一个目录中，可以看到这个目录中的所有内容。在 Linux 系统当中，<code>ls</code> 命令可能是最常被运行的，<code>ls</code> 的使用语法如下</p>
+<p><a class="glightbox" href="assets/ls_usage.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="assets/ls_usage.png" /></a></p>
+<p>其中有以下三个选项与参数较为常用：</p>
+<ul>
+<li><code>-a</code>：全部的文件，连同隐藏的(开头为 <code>.</code> 的文件)一起列出</li>
+<li><code>-d</code>：仅列出目录本身，而不是列出目录内的文件数据</li>
+<li><code>-l</code>：长数据串列出，包含文件的属性与权限等数据</li>
+</ul>
+<p>使用案例：</p>
+<p><a class="glightbox" href="assets/ls_example.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="assets/ls_example.png" /></a></p>
+<h4 id="cd切换目录"><code>cd</code>(切换目录)<a class="headerlink" href="#cd切换目录" title="Permanent link">&para;</a></h4>
+<p><code>cd</code> 命令相当于我们在 Windows 中鼠标双击进入目录的操作，<code>cd</code> 的全称是 Change Directory，意思是交换目录。语法：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span><span class="o">[</span>相对路径或绝对路径<span class="o">]</span>
+</code></pre></div>
+<p>使用案例：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~<span class="w">  </span><span class="c1"># 表示回到自己的家目录</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..<span class="w"> </span><span class="c1"># 表示回到自己的上一级目录</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>-<span class="w">  </span><span class="c1"># 表示回到上一次所在的目录</span>
+</code></pre></div>
+<h4 id="pwd显示当前目录"><code>pwd</code>(显示当前目录)<a class="headerlink" href="#pwd显示当前目录" title="Permanent link">&para;</a></h4>
+<p><code>pwd</code> 是 Print Working Directory 的缩写，也就是显示目前所在目录的命令。</p>
+<p><a class="glightbox" href="assets/pwd_usage.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="assets/pwd_usage.png" /></a></p>
+<p>使用案例：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span><span class="nb">pwd</span><span class="w">   </span><span class="c1"># 单纯显示当前的目录</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>/home/jeffery/share/00_shell
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># 显示出实际的工作目录，而非链接本身的目录名</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/lib
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>$<span class="w"> </span><span class="nb">pwd</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>/lib<span class="w">  </span><span class="c1"># 列出当前的工作目录</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>$<span class="w"> </span><span class="nb">pwd</span><span class="w"> </span>-P
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>/usr/lib<span class="w"> </span><span class="c1"># 列出实际的目录</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>$<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>/lib
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>lrwxrwxrwx<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">7</span><span class="w"> </span>Mar<span class="w"> </span><span class="m">14</span><span class="w">  </span><span class="m">2023</span><span class="w"> </span>/lib<span class="w"> </span>-&gt;<span class="w"> </span>usr/lib
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="c1"># /lib 是一个符号链接，访问 /lib 目录就是在访问 /usr/lib 目录</span>
+</code></pre></div>
+<h4 id="mkdir创建一个新目录"><code>mkdir</code>(创建一个新目录)<a class="headerlink" href="#mkdir创建一个新目录" title="Permanent link">&para;</a></h4>
+<p>在 Windows 中创建一个新目录只需在空白处右击新建一个即可，在 Linux 中使用 <code>mkdir</code>(make directory) 来创建一个新目录，其基本使用语法如下</p>
+<p><a class="glightbox" href="assets/mkdir_usage.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="assets/mkdir_usage.png" /></a></p>
+<p>其中 <code>-m</code> 是配置文件的权限，不会依据默认权限(umask)来配置权限。<code>-p</code> 是允许在将所需要的目录递归创建</p>
+<p>使用案例：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>~$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/tmp
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>tmp$<span class="w"> </span>mkdir<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="c1"># 创建一名为 test 的新目录</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>tmp$<span class="w"> </span>mkdir<span class="w"> </span>test1/test2/test3/test4
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>mkdir:<span class="w"> </span>cannot<span class="w"> </span>create<span class="w"> </span>directory<span class="w"> </span>‘test1/test2/test3/test4’:<span class="w"> </span>No<span class="w"> </span>such<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1"># No such file or directory &lt;== 没办法直接创建此目录啊！</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>tmp$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>test1/test2/test3/test4<span class="w"> </span><span class="c1"># 加了 -P 就可以自行递归创建多层目录</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>/tmp$<span class="w"> </span>mkdir<span class="w"> </span>-m<span class="w"> </span><span class="m">711</span><span class="w"> </span>test2
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>/tmp$<span class="w"> </span>ls<span class="w"> </span>-l
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>drwxrwxr-x<span class="w"> </span><span class="m">3</span><span class="w"> </span>0voice<span class="w"> </span>0voice<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">12</span>:50<span class="w"> </span><span class="nb">test</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>drwxrwxr-x<span class="w"> </span><span class="m">3</span><span class="w"> </span>0voice<span class="w"> </span>0voice<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">12</span>:53<span class="w"> </span>test1
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>drwx--x--x<span class="w"> </span><span class="m">2</span><span class="w"> </span>0voice<span class="w"> </span>0voice<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">12</span>:54<span class="w"> </span>test2
+</code></pre></div>
+<p>上面的权限部分，如果没有加上 <code>-m</code> 来强制配置属性，系统会使用默认属性。如果我们使用 <code>-m</code>，如上例我们给予 <code>-m 711</code> 来给予新的目录 <code>drwx--x--x</code> 的权限。</p>
+<h4 id="rmdir删除一个空目录"><code>rmdir</code>(删除一个空目录)<a class="headerlink" href="#rmdir删除一个空目录" title="Permanent link">&para;</a></h4>
+<p>在 Windows 中删除一个目录右击删除即可，而在 Linux 中需要使用 <code>rmdir</code> 命令删除目录，并且需要删除的目录必须是一个空目录。</p>
+<p><a class="glightbox" href="assets/rmdir_usage.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="assets/rmdir_usage.png" /></a></p>
+<p>加上 <code>-p</code> 选项表示连同上一级的空目录也一起删除，使用案例：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>/tmp$<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span><span class="c1"># 看看有多少目录存在？</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>drwxrwxr-x<span class="w"> </span><span class="m">3</span><span class="w"> </span>0voice<span class="w"> </span>0voice<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">12</span>:50<span class="w"> </span><span class="nb">test</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>drwxrwxr-x<span class="w"> </span><span class="m">3</span><span class="w"> </span>0voice<span class="w"> </span>0voice<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">12</span>:53<span class="w"> </span>test1
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>drwx--x--x<span class="w"> </span><span class="m">2</span><span class="w"> </span>0voice<span class="w"> </span>0voice<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">12</span>:54<span class="w"> </span>test2
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>/tmp$<span class="w"> </span>rmdir<span class="w"> </span><span class="nb">test</span><span class="w">  </span><span class="c1"># 可直接删除掉，没问题</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>/tmp$<span class="w"> </span>rmdir<span class="w"> </span>test1<span class="w"> </span><span class="c1"># 因为尚有内容，所以无法删除！</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>rmdir:<span class="w"> </span>’test1‘:<span class="w"> </span>Directory<span class="w"> </span>not<span class="w"> </span>empty
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>/tmp$<span class="w"> </span>rmdir<span class="w"> </span>-p<span class="w"> </span>test1/test2/test3/test4
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>/tmp$<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span><span class="c1"># 您看看，底下的输出中 test 与 test1 不见了！</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>drwx--x--x<span class="w"> </span><span class="m">2</span><span class="w"> </span>0voice<span class="w"> </span>0voice<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">12</span>:54<span class="w"> </span>test2
+</code></pre></div>
+<p>如果需要删除非空目录，则要使用 <code>rm</code> 命令。</p>
+<h4 id="cp复制文件或目录"><code>cp</code>(复制文件或目录)<a class="headerlink" href="#cp复制文件或目录" title="Permanent link">&para;</a></h4>
+<p><code>cp</code> 拷贝文件和目录的语法如下</p>
+<p><a class="glightbox" href="assets/cp_usage.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="assets/cp_usage.png" /></a></p>
+<p>其中：</p>
+<ul>
+<li><code>-a</code>：相当于 <code>-pdr</code> 的意思，至于 <code>pdr</code> 请参考下列说明(常用)</li>
+<li><code>-d</code>：若来源文件为链接文件的属性(link file)，则复制链接文件属性而非文件本身</li>
+<li><code>-f</code>：为强制(force)的意思，若目标文件已经存在且无法开启，则移除后再尝试一次</li>
+<li><code>-i</code>：若目标文件(destination)已经存在时，在覆盖时会先询问动作的进行(常用)</li>
+<li><code>-l</code>：进行硬式链接(hard link)的链接文件创建，而非复制文件本身</li>
+<li><code>-p</code>：连同文件的属性一起复制过去，而非使用默认属性(备份常用)</li>
+<li><code>-r</code>：递归持续复制，用于目录的复制行为(常用)</li>
+<li><code>-s</code>：复制成为符号链接(symbolic link)</li>
+<li><code>-u</code>：若 destination 比 source 旧才升级 destination</li>
+</ul>
+<p>用 jeffery 身份，将 jeffery 目录下的 <code>.bashrc</code> 复制到 <code>/tmp</code> 下，并命名为 <code>bashrc</code>。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>~$<span class="w"> </span>cp<span class="w"> </span>~/.bashrc<span class="w"> </span>/tmp/bashrc
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>~$<span class="w"> </span>cp<span class="w"> </span>-i<span class="w"> </span>~/.bashrc<span class="w"> </span>/tmp/bashrc
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>cp:<span class="w"> </span>overwrite<span class="w"> </span>’/tmp/bashrc‘?<span class="w"> </span>n<span class="w"> </span><span class="c1"># n 不覆盖，y 为覆盖</span>
+</code></pre></div>
+<h4 id="rm移除文件或目录"><code>rm</code>(移除文件或目录)<a class="headerlink" href="#rm移除文件或目录" title="Permanent link">&para;</a></h4>
+<p>在 Windows 中删除文件和目录的操作都是相同的，但是在 Linux 中删除文件使用 <code>rm</code>，此命令也可用于删除目录。</p>
+<p><a class="glightbox" href="assets/rm_usage.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="assets/rm_usage.png" /></a></p>
+<p>常用的选项与参数：</p>
+<ul>
+<li><code>-f</code>：就是 force 的意思，忽略不存在的文件，不会出现警告信息</li>
+<li><code>-i</code>：互动模式，在删除前会询问使用者是否动作</li>
+<li><code>-r</code>：递归删除啊！最常用在目录的删除了！这是非常危险的选项！</li>
+</ul>
+<p>使用案例：将刚刚在 <code>cp</code> 的实例中创建的 bashrc 删除掉</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>~$<span class="w"> </span>rm<span class="w"> </span>-i<span class="w"> </span>bashrc
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>rm:<span class="w"> </span>remove<span class="w"> </span>regular<span class="w"> </span>file<span class="w"> </span><span class="sb">`</span>bashrc<span class="err">&#39;</span>?<span class="w"> </span>y
+</code></pre></div>
+<p>如果加上 <code>-i</code> 的选项就会主动询问，避免你删除到错误的文件。</p>
+<h4 id="mv移动文件与目录修改名称"><code>mv</code>(移动文件与目录/修改名称)<a class="headerlink" href="#mv移动文件与目录修改名称" title="Permanent link">&para;</a></h4>
+<p>在 Windows 中剪切文件也是通过右击鼠标来操作，在 Linux 中使用 <code>mv</code> 命令。</p>
+<p><a class="glightbox" href="assets/mv_usage.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="assets/mv_usage.png" /></a></p>
+<p>常用的选项与参数：</p>
+<ul>
+<li><code>-f</code>：force 强制的意思，如果目标文件已经存在，不会询问而直接覆盖</li>
+<li><code>-i</code>：若目标文件(destination)已经存在时，就会询问是否覆盖</li>
+<li><code>-u</code>：若目标文件已经存在，且 source 比较新，才会覆盖</li>
+</ul>
+<p>使用案例：复制一文件，创建一目录，将文件移动到目录中</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>~$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/tmp
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>/tmp$<span class="w"> </span>cp<span class="w"> </span>~/.bashrc<span class="w"> </span>bashrc
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>/tmp$<span class="w"> </span>mkdir<span class="w"> </span>mvtest
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>/tmp$<span class="w"> </span>mv<span class="w"> </span>bashrc<span class="w"> </span>mvtest
+</code></pre></div>
+<h3 id="linux-文件内容查看">Linux 文件内容查看<a class="headerlink" href="#linux-文件内容查看" title="Permanent link">&para;</a></h3>
+<h4 id="cat文本输出"><code>cat</code>(文本输出)<a class="headerlink" href="#cat文本输出" title="Permanent link">&para;</a></h4>
+<p><code>cat</code> 是将文件内容从第一行开始一次全部显示出来，使用语法如下</p>
+<p><a class="glightbox" href="assets/cat_usage.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="assets/cat_usage.png" /></a></p>
+<p>常用选项和参数：</p>
+<ul>
+<li><code>-A</code>：相当于 <code>-vET</code> 的整合选项，可列出一些特殊字符而不是空白而已</li>
+<li><code>-b</code>：列出行号，仅针对非空白行做行号显示，空白行不标行号</li>
+<li><code>-E</code>：将结尾的断行字节 <code>$</code> 显示出来</li>
+<li><code>-n</code>：列印出行号，连同空白行也会有行号，与 <code>-b</code> 的选项不同</li>
+<li><code>-T</code>：将 [tab] 按键以 <code>^I</code> 显示出来</li>
+<li><code>-v</code>：列出一些看不出来的特殊字符</li>
+</ul>
+<p>使用案例：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>~$<span class="w"> </span>cat<span class="w"> </span>/etc/magic
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="c1"># Magic local data for file(1) command.</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="c1"># Insert here your local magic data. Format is described in magic(5).</span>
+</code></pre></div>
+<h4 id="tac与-cat-相反"><code>tac</code>(与 <code>cat</code> 相反)<a class="headerlink" href="#tac与-cat-相反" title="Permanent link">&para;</a></h4>
+<p><code>tac</code> 与 <code>cat</code> 的命令刚好相反，文件内容是从最后一行开始显示，使用语法如下</p>
+<p><a class="glightbox" href="assets/tac_usage.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="assets/tac_usage.png" /></a></p>
+<p>使用案例：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>~$<span class="w"> </span>cat<span class="w"> </span>/etc/magic
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="c1"># Insert here your local magic data. Format is described in magic(5).</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="c1"># Magic local data for file(1) command.</span>
+</code></pre></div>
+<h4 id="nl显示行号"><code>nl</code>(显示行号)<a class="headerlink" href="#nl显示行号" title="Permanent link">&para;</a></h4>
+<p>此命令可以带有行号的方式显示文件数据，使用语法如下</p>
+<p><a class="glightbox" href="assets/nl_usage.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="assets/nl_usage.png" /></a></p>
+<p>常用的选项与参数：</p>
+<ul>
+<li><code>-b</code>：指定行号指定的方式，主要有两种</li>
+<li><code>-b a</code>：表示不论是否为空行，也同样列出行号(类似 <code>cat -n</code>)</li>
+<li><code>-b t</code>：如果有空行，空的那一行不要列出行号(默认值)</li>
+<li><code>-n</code>：列出行号表示的方法，主要有三种</li>
+<li><code>-n ln</code>：行号在荧幕的最左方显示</li>
+<li><code>-n rn</code>：行号在自己栏位的最右方显示，且不加 0</li>
+<li><code>-n rz</code>：行号在自己栏位的最右方显示，且加 0</li>
+<li><code>-w</code>：行号栏位的占用的位数</li>
+</ul>
+<p>使用案例：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>~$<span class="w"> </span>nl<span class="w"> </span>/etc/magic
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">     </span><span class="m">1</span><span class="w">  </span><span class="c1"># Magic local data for file(1) command.</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">     </span><span class="m">2</span><span class="w">  </span><span class="c1"># Insert here your local magic data. Format is described in magic(5).</span>
+</code></pre></div>
+<h4 id="more一页一页翻动"><code>more</code>(一页一页翻动)<a class="headerlink" href="#more一页一页翻动" title="Permanent link">&para;</a></h4>
+<p>上面的命令都是一次将文件的所有内容输出，对于内容较多的文件，这种方式可能会影响我们浏览文件内容。使用 <code>more</code> 命令可以从第一行开始显示部分文件内容，然后逐页逐页的浏览，使用语法如下：</p>
+<p><a class="glightbox" href="assets/more_usage.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="assets/more_usage.png" /></a></p>
+<p>使用案例：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>~$<span class="w"> </span>more<span class="w"> </span>~/.bashrc
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="c1"># ~/.bashrc: executed by bash(1) for non-login shells.</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="c1"># see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1"># for examples</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="c1"># If not running interactively, don&#39;t do anything</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="k">case</span><span class="w"> </span><span class="nv">$-</span><span class="w"> </span><span class="k">in</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span>*i*<span class="o">)</span><span class="w"> </span><span class="p">;;</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">      </span>*<span class="o">)</span><span class="w"> </span><span class="k">return</span><span class="p">;;</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="k">esac</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="c1"># don&#39;t put duplicate lines or lines starting with space in the history.</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="c1"># See bash(1) for more options</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="nv">HISTCONTROL</span><span class="o">=</span>ignoreboth
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="c1"># append to the history file, don&#39;t overwrite it</span>
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="nb">shopt</span><span class="w"> </span>-s<span class="w"> </span>histappend
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="c1"># for setting history length see HISTSIZE and HISTFILESIZE in bash(1)</span>
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="nv">HISTSIZE</span><span class="o">=</span><span class="m">1000</span>
+<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="nv">HISTFILESIZE</span><span class="o">=</span><span class="m">2000</span>
+<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>
+<a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="c1"># check the window size after each command and, if necessary,</span>
+<a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="c1"># update the values of LINES and COLUMNS.</span>
+<a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a><span class="nb">shopt</span><span class="w"> </span>-s<span class="w"> </span>checkwinsize
+<a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a>--More--<span class="o">(</span><span class="m">17</span>%<span class="o">)</span>
+</code></pre></div>
+<p>在 <code>more</code> 这个程序的运行过程中，常用的按键有：</p>
+<ul>
+<li>空白键(space)：代表向下翻一页</li>
+<li><code>Enter</code>：代表向下翻『一行』</li>
+<li><code>/字串</code>：代表在这个显示的内容当中，向下搜寻『字串』这个关键字</li>
+<li><code>:f</code>：立刻显示出文件名以及目前显示的行数</li>
+<li><code>q</code>：代表立刻离开 <code>more</code>，不再显示该文件内容</li>
+<li><code>b</code> 或 <code>ctrl+b</code>：代表往回翻页，不过这动作只对文件有用</li>
+</ul>
+<h4 id="less"><code>less</code><a class="headerlink" href="#less" title="Permanent link">&para;</a></h4>
+<p><code>less</code> 命令比 <code>more</code> 更加的好用，支持很多 <code>vim</code> 的按键方式，有关 <code>less</code> 的使用语法请自行查阅 <code>man</code> 手册。</p>
+<p>进入 <code>less</code> 运行时的程序可用以下按键：</p>
+<ul>
+<li>空白键：向下翻动一页</li>
+<li><code>pagedown</code>：向下翻动一页</li>
+<li><code>pageup</code>：向上翻动一页</li>
+<li><code>/字串</code>：向下搜寻『字串』的功能</li>
+<li><code>?字串</code>：向上搜寻『字串』的功能</li>
+<li><code>n</code>：重复前一个搜寻 (与 <code>/</code> 或 <code>?</code> 有关)</li>
+<li><code>N</code>：反向的重复前一个搜寻 (与 <code>/</code> 或 <code>?</code> 有关)</li>
+<li><code>q</code>：离开 <code>less</code> 这个程序</li>
+</ul>
+<h4 id="head"><code>head</code><a class="headerlink" href="#head" title="Permanent link">&para;</a></h4>
+<p><code>head</code> 可以获取文件前 n 行的内容，使用语法如下：</p>
+<p><a class="glightbox" href="assets/head_usage.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="assets/head_usage.png" /></a></p>
+<p>最常用的就是 <code>-n</code> 参数，指定获取前面多少行的内容，如果未使用此参数，则会显示默认(10)行数的内容，使用案例：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>~$<span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">20</span><span class="w"> </span>~/.bashrc
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="c1"># ~/.bashrc: executed by bash(1) for non-login shells.</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="c1"># see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># for examples</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="c1"># If not running interactively, don&#39;t do anything</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="k">case</span><span class="w"> </span><span class="nv">$-</span><span class="w"> </span><span class="k">in</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">    </span>*i*<span class="o">)</span><span class="w"> </span><span class="p">;;</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">      </span>*<span class="o">)</span><span class="w"> </span><span class="k">return</span><span class="p">;;</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="k">esac</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="c1"># don&#39;t put duplicate lines or lines starting with space in the history.</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="c1"># See bash(1) for more options</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="nv">HISTCONTROL</span><span class="o">=</span>ignoreboth
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="c1"># append to the history file, don&#39;t overwrite it</span>
+<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="nb">shopt</span><span class="w"> </span>-s<span class="w"> </span>histappend
+<a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>
+<a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="c1"># for setting history length see HISTSIZE and HISTFILESIZE in bash(1)</span>
+<a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a><span class="nv">HISTSIZE</span><span class="o">=</span><span class="m">1000</span>
+<a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a><span class="nv">HISTFILESIZE</span><span class="o">=</span><span class="m">2000</span>
+</code></pre></div>
+<h4 id="tail"><code>tail</code><a class="headerlink" href="#tail" title="Permanent link">&para;</a></h4>
+<p><code>tail</code> 则是与 <code>head</code> 相反，此命令是获取文件末尾 n 行的内容，使用基本上与 <code>head</code> 相同。</p>
+<p><a class="glightbox" href="assets/tail_usage.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="assets/tail_usage.png" /></a></p>
+<p>使用案例：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>~$<span class="w"> </span>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">15</span><span class="w"> </span>~/.bashrc
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span>~/.bash_aliases<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span>.<span class="w"> </span>~/.bash_aliases
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="k">fi</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="c1"># enable programmable completion features (you don&#39;t need to enable</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="c1"># this, if it&#39;s already enabled in /etc/bash.bashrc and /etc/profile</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="c1"># sources /etc/bash.bashrc).</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="k">if</span><span class="w"> </span>!<span class="w"> </span><span class="nb">shopt</span><span class="w"> </span>-oq<span class="w"> </span>posix<span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span>/usr/share/bash-completion/bash_completion<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="w">    </span>.<span class="w"> </span>/usr/share/bash-completion/bash_completion
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="w">  </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span>/etc/bash_completion<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="w">    </span>.<span class="w"> </span>/etc/bash_completion
+<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="w">  </span><span class="k">fi</span>
+<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="k">fi</span>
+</code></pre></div>
+<h2 id="shell-编程">Shell 编程<a class="headerlink" href="#shell-编程" title="Permanent link">&para;</a></h2>
+<p>更多的 shell 教程，请阅读 <a href="https://wangdoc.com/bash/intro">Bash 脚本教程</a>和《鸟哥的 Linux 私房菜》第三部分。</p>
+<p>Shell 是一个用 C 语言编写的程序，是一个命令解释器，是用户使用 Linux 的桥梁。而 Shell 脚本(shell script)是一种为 shell 编写的程序。常见 shell 有以下几种：</p>
+<ul>
+<li>Bourne Shell（/usr/bin/sh 或/bin/sh）</li>
+<li>Bourne Again Shell（/bin/bash）</li>
+<li>C Shell（/usr/bin/csh）</li>
+<li>K Shell（/usr/bin/ksh）</li>
+</ul>
+<p>但是在诸多的 Linux 系统发行版中，Bash 是最常见，也是使用最多并且是大多数 Linux 系统默认的 Shell。</p>
+<p>shell 脚本的基本形式：</p>
+<ol>
+<li>shell 脚本的扩展名均为 <code>.sh</code></li>
+<li>shell 脚本中的第一行必须是 #! &lt;路径&gt;，来告诉系统需要什么解释器来执行</li>
+<li>shell 脚本必须让该文件拥有可执行权限或者让该文件作为解释器的参数，执行命令</li>
+</ol>
+<h3 id="shell-变量">Shell 变量<a class="headerlink" href="#shell-变量" title="Permanent link">&para;</a></h3>
+<p>shell 脚本中也可以使用变量来存储值，变量的定义有以下几个规则：</p>
+<ul>
+<li>变量名和等号之间不能有空格</li>
+<li>命名只能使用英文字母，数字和下划线，首个字符不能以数字开头</li>
+<li>名称中间不能有空格</li>
+<li>不能使用标点符号</li>
+<li>不能使用 bash 里的关键字(可用 <code>help</code> 命令查看保留关键字)</li>
+</ul>
+<p>例如：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># 有效的 shell 变量</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>zerovoice
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>ZERO_VOICE
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>_ZERO_VOICE
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>Zerovoice0
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="c1"># 无效的 shell 变量</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>0voice
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>?voice
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>zero*voice
+</code></pre></div>
+<h4 id="使用变量">使用变量<a class="headerlink" href="#使用变量" title="Permanent link">&para;</a></h4>
+<p>使用一个定义过的变量，只要在变量名前加上 <code>$</code> 符号即可，如：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nv">domain</span><span class="o">=</span><span class="s2">&quot;www.github.com&quot;</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$domain</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="nb">echo</span><span class="w"> </span><span class="si">${</span><span class="nv">domain</span><span class="si">}</span>
+</code></pre></div>
+<p>变量外的大括号，<code>$domain</code> 和 <code>${domain}</code> 效果一样，只是后者可以帮助解释器识别变量的边界，如</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">for</span><span class="w"> </span>skill<span class="w"> </span><span class="k">in</span><span class="w"> </span>C<span class="w"> </span>CPP<span class="w"> </span>Linux<span class="w"> </span>Shell<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;I am good at </span><span class="si">${</span><span class="nv">skill</span><span class="si">}</span><span class="s2">Code&quot;</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="k">done</span>
+</code></pre></div>
+<p>如果不给 <code>skill</code> 变量加上大括号，写成了 <code>echo "I am good at ${skill}Code"</code>，解释器就会把 <code>$skillCode</code> 当成一个变量。</p>
+<h4 id="只读变量">只读变量<a class="headerlink" href="#只读变量" title="Permanent link">&para;</a></h4>
+<p>使用 <code>readonly</code> 命令可以将变量定义为只读变量，只读变量的值不能被改变。下面的例子尝试改变只读变量，结果报错：</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="ch">#! /bin/bash</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="nv">url</span><span class="o">=</span><span class="s2">&quot;http://www.google.com&quot;</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="nb">readonly</span><span class="w"> </span>url
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="nv">url</span><span class="o">=</span><span class="s2">&quot;http://www.baidu.com&quot;</span>
+</code></pre></div>
+运行脚本，结果如下：</p>
+<p><a class="glightbox" href="assets/readonly_variable.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="assets/readonly_variable.png" /></a></p>
+<h4 id="删除变量">删除变量<a class="headerlink" href="#删除变量" title="Permanent link">&para;</a></h4>
+<p>使用 <code>unset</code> 命令可以删除变量，语法：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="nb">unset</span><span class="w"> </span>variable_name
+</code></pre></div>
+<p>变量被删除后不能再次使用，<code>unset</code> 不能删除只读变量。</p>
+<p>使用示例：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="ch">#!/bin/bash</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="nv">url</span><span class="o">=</span><span class="s2">&quot;http://www.baidu.com&quot;</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="nb">unset</span><span class="w"> </span>url
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$url</span>
+</code></pre></div>
+<p>执行上述脚本，没有任何输出。</p>
+<h4 id="变量类型">变量类型<a class="headerlink" href="#变量类型" title="Permanent link">&para;</a></h4>
+<p>运行 shell 时，会同时存在三种变量：</p>
+<ol>
+<li>局部变量：局部变量在脚本或命令中定义，仅在当前 shell 脚本实例中有效，其他 shell 启动的程序不能访问局部变量</li>
+<li>环境变量(全局变量)：所有的程序，包括 shell 启动的程序，都能访问环境变量，有些程序需要环境变量保证其正常运行。必要的时候 shell 脚本也可以定义环境变量</li>
+<li>shell 变量：shell 变量是由 shell 程序设置的特殊变量。shell 变量中有一部分是环境变量，有一部分是局部变量，这些变量保证了 shell 的正常运行</li>
+</ol>
+<h3 id="shell-字符串">Shell 字符串<a class="headerlink" href="#shell-字符串" title="Permanent link">&para;</a></h3>
+<p>字符串是 shell 编程中最常用最有用的数据类型（除了数字和字符串，也没啥其它类型好用了），字符串可以用单引号，也可以用双引号，也可以不用引号。</p>
+<h4 id="单引号">单引号<a class="headerlink" href="#单引号" title="Permanent link">&para;</a></h4>
+<p>单引号字符串的使用案例：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="ch">#! /bin/bash</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="nv">name</span><span class="o">=</span>jeffery
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="nv">str</span><span class="o">=</span><span class="s1">&#39;my name is $name&#39;</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$str</span>
+</code></pre></div>
+<p>运行上述脚本，输出结果：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>$<span class="w"> </span>chmod<span class="w"> </span>u+x<span class="w"> </span>03_string.sh
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>$<span class="w"> </span>./03_string
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>my<span class="w"> </span>name<span class="w"> </span>is<span class="w"> </span><span class="nv">$name</span>
+</code></pre></div>
+<p>为什么输出结果不是我们所想的，是因为单引号字符串有几个限制：</p>
+<ul>
+<li>单引号里的任何字符都会原样输出，单引号字符串中的变量都是无效的</li>
+<li>单引号字串中不能出现单独一个的单引号(对单引号使用转义字符也不行)，但可成对出现，作为字符串拼接使用</li>
+</ul>
+<h4 id="双引号">双引号<a class="headerlink" href="#双引号" title="Permanent link">&para;</a></h4>
+<p>上面脚本的字符串使用双引号，会发生什么</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="ch">#! /bin/bash</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="nv">name</span><span class="o">=</span><span class="s2">&quot;jeffery&quot;</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="nv">str</span><span class="o">=</span><span class="s1">&#39;my name is $name&#39;</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$str</span>
+</code></pre></div>
+<p>运行上述脚本，输出结果：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>$<span class="w"> </span>chmod<span class="w"> </span>u+x<span class="w"> </span>03_string.sh
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>$<span class="w"> </span>./03_string
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>my<span class="w"> </span>name<span class="w"> </span>is<span class="w"> </span>jeffery
+</code></pre></div>
+<p>双引号的基本使用与单引号相同，但是双引号里可以有变量、可以有转义字符。</p>
+<h4 id="拼接字符串">拼接字符串<a class="headerlink" href="#拼接字符串" title="Permanent link">&para;</a></h4>
+<p>使用案例：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="c1"># 拼接字符串</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="nv">your_name</span><span class="o">=</span><span class="s2">&quot;0voice&quot;</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="c1"># 使用双引号拼接</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="nv">greeting</span><span class="o">=</span><span class="s2">&quot;hello, &quot;</span><span class="nv">$your_name</span><span class="s2">&quot; !&quot;</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="nv">greeting_1</span><span class="o">=</span><span class="s2">&quot;hello, </span><span class="si">${</span><span class="nv">your_name</span><span class="si">}</span><span class="s2"> !&quot;</span>
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$greeting</span><span class="w"> </span><span class="nv">$greeting_1</span>
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>
+<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="c1">#使用单引号拼接</span>
+<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a><span class="nv">greeting_2</span><span class="o">=</span><span class="s1">&#39;hello, &#39;</span><span class="nv">$your_name</span><span class="s1">&#39; !&#39;</span>
+<a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a><span class="nv">greeting_3</span><span class="o">=</span><span class="s1">&#39;hello, ${your_name} !&#39;</span>
+<a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$greeting_2</span><span class="w"> </span><span class="nv">$greeting_3</span>
+</code></pre></div>
+<p>输出结果</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>hello,<span class="w"> </span>0voice<span class="w"> </span>!<span class="w"> </span>hello,<span class="w"> </span>0voice<span class="w"> </span>!
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>hello,<span class="w"> </span>0voice<span class="w"> </span>!<span class="w"> </span>hello,<span class="w"> </span><span class="si">${</span><span class="nv">your_name</span><span class="si">}</span><span class="w"> </span>!
+</code></pre></div>
+<h4 id="获取字符长度">获取字符长度<a class="headerlink" href="#获取字符长度" title="Permanent link">&para;</a></h4>
+<p>使用案例：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="nv">string</span><span class="o">=</span><span class="s2">&quot;abcd&quot;</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="nb">echo</span><span class="w"> </span><span class="si">${#</span><span class="nv">string</span><span class="si">}</span><span class="w"> </span><span class="c1"># 输出 4</span>
+</code></pre></div>
+<h4 id="提取子字符串">提取子字符串<a class="headerlink" href="#提取子字符串" title="Permanent link">&para;</a></h4>
+<p>使用案例：从字符串第 2 个字符开始截取 4 个字符</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="nv">string</span><span class="o">=</span><span class="s2">&quot;0voice is a great college&quot;</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="nb">echo</span><span class="w"> </span><span class="si">${</span><span class="nv">string</span><span class="p">:</span><span class="nv">1</span><span class="p">:</span><span class="nv">4</span><span class="si">}</span>
+</code></pre></div>
+<h4 id="查找字符位置">查找字符位置<a class="headerlink" href="#查找字符位置" title="Permanent link">&para;</a></h4>
+<p>使用案例：查找字符 i 或 o 的位置</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="nv">string</span><span class="o">=</span><span class="s2">&quot;0voice is great college&quot;</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="nb">echo</span><span class="w"> </span><span class="sb">`</span>expr<span class="w"> </span>index<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$string</span><span class="s2">&quot;</span><span class="w"> </span>io<span class="sb">`</span><span class="w"> </span><span class="c1"># 输出 3</span>
+</code></pre></div>
+<h3 id="shell-数组">Shell 数组<a class="headerlink" href="#shell-数组" title="Permanent link">&para;</a></h3>
+<p>bash 支持一维数组（不支持多维数组），并且没有限定数组的大小。类似于 C 语言，数组元素的下标由 0 开始编号。获取数组中的元素要利用下标，下标可以
+是整数或算术表达式，其值应大于或等于 0。</p>
+<h4 id="定义数组">定义数组<a class="headerlink" href="#定义数组" title="Permanent link">&para;</a></h4>
+<p>在 Shell 中，用括号来表示数组，数组元素用“空格”符号分割开。定义数组的一般形式为：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="nv">数组名</span><span class="o">=(</span>值1<span class="w"> </span>值2<span class="w"> </span>值3<span class="w"> </span>...<span class="w"> </span>值n<span class="o">)</span>
+</code></pre></div>
+<p>使用案例：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="c1"># 方法一</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="nv">nums</span><span class="o">=(</span><span class="m">1</span><span class="w"> </span><span class="m">34</span><span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">3</span><span class="o">)</span>
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="c1"># 方法二：单独定义数组的各个分量</span>
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>nums<span class="o">[</span><span class="m">0</span><span class="o">]=</span><span class="m">1</span>
+<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>nums<span class="o">[</span><span class="m">1</span><span class="o">]=</span><span class="m">12</span>
+<a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a>nums<span class="o">[</span>n<span class="o">]=</span><span class="m">132</span>
+</code></pre></div>
+<p>单独定义数组时，可以不使用连续的下标，而且下标的范围没有限制。</p>
+<h4 id="读取数组">读取数组<a class="headerlink" href="#读取数组" title="Permanent link">&para;</a></h4>
+<p>读取数组元素值的一般格式是：<code>${数组名[下标]}</code>，如下所示：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="nv">nums</span><span class="o">=(</span><span class="m">1</span><span class="w"> </span><span class="m">34</span><span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">3</span><span class="o">)</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="nv">value</span><span class="o">=</span><span class="si">${</span><span class="nv">nums</span><span class="p">[2]</span><span class="si">}</span>
+</code></pre></div>
+<p>使用 <code>@</code> 符号可以获取数组中的所有元素，例如</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="nv">nums</span><span class="o">=(</span><span class="m">1</span><span class="w"> </span><span class="m">34</span><span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">3</span><span class="o">)</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="nb">echo</span><span class="w"> </span><span class="si">${</span><span class="nv">nums</span><span class="p">[@]</span><span class="si">}</span>
+</code></pre></div>
+<h4 id="获取数组的长度">获取数组的长度<a class="headerlink" href="#获取数组的长度" title="Permanent link">&para;</a></h4>
+<p>获取数组长度的方法与获取字符串长度的方法相同 <code>${#数组名[@]}</code>，例如：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="c1"># 获取数组的长度</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="nb">echo</span><span class="w"> </span><span class="si">${#</span><span class="nv">nums</span><span class="p">[@]</span><span class="si">}</span>
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="c1"># 获取单个元素的长度</span>
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="nb">echo</span><span class="w"> </span><span class="si">${#</span><span class="nv">nums</span><span class="p">[2]</span><span class="si">}</span>
+</code></pre></div>
+<h3 id="shell-注释">Shell 注释<a class="headerlink" href="#shell-注释" title="Permanent link">&para;</a></h3>
+<p>以 <code>#</code> 开头的行就是注释，会被解释器忽略。通过每一行加一个 <code>#</code> 号设置多行注释，像这样：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="c1">#-------------------------------------------</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="c1"># slogan：一切只为渴望更优秀的你</span>
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="c1">#--------------------------------------------</span>
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="c1">##### 用户配置区 开始 #####-</span>
+<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a><span class="c1">#</span>
+<a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a><span class="c1">#</span>
+<a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a><span class="c1"># 这里可以添加脚本描述信息</span>
+<a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a><span class="c1">#</span>
+<a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a><span class="c1">#</span>
+<a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a><span class="c1">##### 用户配置区 结束 #####</span>
+</code></pre></div>
+<p>如果在开发过程中，遇到大段的代码需要临时注释起来，过一会儿又取消注释，怎么办呢？每一行加个 <code>#</code> 符号太费力了，可以把这一段要注释的代码用一对花括号括起来，定义成一个函数，没有地方调用这个函数，这块代码就不会执行，达到了和注释一样的效果。</p>
+<h3 id="shell-传递参数">Shell 传递参数<a class="headerlink" href="#shell-传递参数" title="Permanent link">&para;</a></h3>
+<p>我们可以在执行 Shell 脚本时，向脚本传递参数，脚本内获取参数的格式为：<code>$n</code>。n 代表一个数字，1 为执行脚本的第一个参数，2 为执行脚本的第二个参数，以此类推 ……</p>
+<p>以下实例我们向脚本传递三个参数，并分别输出，其中 <code>$0</code> 为执行的文件名：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="ch">#! /bin/bash</span>
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Shell 传递参数实例&quot;</span><span class="p">;</span>
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;执行的文件名: </span><span class="nv">$0</span><span class="s2">&quot;</span><span class="p">;</span>
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;第一个参数: </span><span class="nv">$1</span><span class="s2">&quot;</span>
+<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;第一个参数: </span><span class="nv">$2</span><span class="s2">&quot;</span>
+<a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;第一个参数: </span><span class="nv">$3</span><span class="s2">&quot;</span>
+</code></pre></div>
+<p>运行此脚本，输出结果如下：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>$<span class="w"> </span>chmod<span class="w"> </span>u+x<span class="w"> </span>test.sh
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>$<span class="w"> </span>./test.sh<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span>
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>Shell<span class="w"> </span>传递参数实例
+<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>执行的文件名：./test.sh
+<a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>第一个参数为：1
+<a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a>第二个参数为：2
+<a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a>第三个参数为：3
+</code></pre></div>
+<h4 id="特殊字符">特殊字符<a class="headerlink" href="#特殊字符" title="Permanent link">&para;</a></h4>
+<p>除了使用上述的方式获取参数，还有其他特殊的字符来处理参数</p>
+<p><a class="glightbox" href="assets/parameters.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="assets/parameters.png" /></a></p>
+<p>使用案例：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="ch">#! /bin/bash</span>
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Shell 传递参数实例&quot;</span><span class="p">;</span>
+<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;第一个参数: </span><span class="nv">$1</span><span class="s2">&quot;</span><span class="p">;</span>
+<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;参数个数: </span><span class="nv">$#</span><span class="s2">&quot;</span><span class="p">;</span>
+<a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;传递的参数作为一个字符串表示: </span><span class="nv">$*</span><span class="s2">&quot;</span>
+</code></pre></div>
+<p>运行此脚本，输出结果如下：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>$<span class="w"> </span>chmod<span class="w"> </span>u+x<span class="w"> </span>test.sh
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>$<span class="w"> </span>./test.sh<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span>
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>Shell<span class="w"> </span>传递参数实例
+<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>执行的文件名：./test.sh
+<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>第一个参数为：1
+<a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>参数个数为：3
+<a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a>传递的参数作为一个字符串显示：1<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span>
+</code></pre></div>
+<h4 id="-与--的区别"><code>$*</code> 与 <code>$@</code> 的区别<a class="headerlink" href="#-与--的区别" title="Permanent link">&para;</a></h4>
+<ul>
+<li>相同点：都是引用所有参数。</li>
+<li>不同点：只有在双引号中体现出来，假设在脚本运行时写入三个参数 1、2、3，则 <code>*</code> 等价于 <code>"1 2 3"</code>(当作一个整体)，而 <code>@</code> 等价于 <code>"1" "2" "3"</code>(每个都是单独的一个)。</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="ch">#! /bin/bash</span>
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;-- \$* 演示 ---&quot;</span>
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$*</span><span class="s2">&quot;</span><span class="p">;</span><span class="k">do</span>
+<a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$i</span>
+<a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a><span class="k">done</span>
+<a id="__codelineno-39-7" name="__codelineno-39-7" href="#__codelineno-39-7"></a>
+<a id="__codelineno-39-8" name="__codelineno-39-8" href="#__codelineno-39-8"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;-- \$@ 演示 ---&quot;</span>
+<a id="__codelineno-39-9" name="__codelineno-39-9" href="#__codelineno-39-9"></a><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="p">;</span><span class="k">do</span>
+<a id="__codelineno-39-10" name="__codelineno-39-10" href="#__codelineno-39-10"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$i</span>
+<a id="__codelineno-39-11" name="__codelineno-39-11" href="#__codelineno-39-11"></a><span class="k">done</span>
+</code></pre></div>
+<p>执行脚本，输出结果如下所示：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>$<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>test.sh
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>$<span class="w"> </span>./test.sh<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span>
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>--<span class="w"> </span><span class="nv">$*</span><span class="w"> </span>演示<span class="w"> </span>---
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span>
+<a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a>--<span class="w"> </span><span class="nv">$@</span><span class="w"> </span>演示<span class="w"> </span>---
+<a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a><span class="m">1</span>
+<a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a><span class="m">2</span>
+<a id="__codelineno-40-8" name="__codelineno-40-8" href="#__codelineno-40-8"></a><span class="m">3</span>
+</code></pre></div>
+<h3 id="shell-基本运算符">Shell 基本运算符<a class="headerlink" href="#shell-基本运算符" title="Permanent link">&para;</a></h3>
+
+<!-- Source file information -->
+
+
+<!-- Was this page helpful? -->
+
+
+
+
+<!-- Previous and next pages link -->
+<nav
+class="md-footer__inner md-grid"
+aria-label="页脚"
+
+>
+
+<!-- Link to previous page -->
+
+
+<!-- Link to next page -->
+
+</nav>
+
+<!-- Comment system -->
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 JunXu</br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "none"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

@@ -2,57 +2,87 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://xjjeffery.github.io/index.html</loc>
-         <lastmod>2024-09-08</lastmod>
+         <lastmod>2024-09-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://xjjeffery.github.io/0voice/2404_cpp/network/network_io_multi_plexing.html</loc>
-         <lastmod>2024-09-08</lastmod>
+         <lastmod>2024-09-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://xjjeffery.github.io/0voice/2404_cpp/network/network_io_reactor.html</loc>
-         <lastmod>2024-09-08</lastmod>
+         <lastmod>2024-09-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://xjjeffery.github.io/0voice/2404_cpp/network/network_io_server.html</loc>
-         <lastmod>2024-09-08</lastmod>
+         <lastmod>2024-09-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://xjjeffery.github.io/0voice/2404_cpp/network/posix_api.html</loc>
+         <lastmod>2024-09-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://xjjeffery.github.io/0voice/linux_basics/linux_command_and_shell.html</loc>
+         <lastmod>2024-09-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://xjjeffery.github.io/basic_knowledges/c_primer_plus.html</loc>
+         <lastmod>2024-09-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://xjjeffery.github.io/basic_knowledges/linux_high_performance_server_programming.html</loc>
+         <lastmod>2024-09-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://xjjeffery.github.io/basic_knowledges/tcp_ip_network_programming.html</loc>
+         <lastmod>2024-09-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://xjjeffery.github.io/basic_knowledges/vbird_linux_basics/file_directory_and_desk.html</loc>
+         <lastmod>2024-09-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://xjjeffery.github.io/basic_knowledges/vbird_linux_basics/shell_and_shell_script.html</loc>
+         <lastmod>2024-09-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://xjjeffery.github.io/linux/linux_system_programming/file_io.html</loc>
-         <lastmod>2024-09-08</lastmod>
+         <lastmod>2024-09-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://xjjeffery.github.io/linux/linux_system_programming/files_and_directories.html</loc>
+         <lastmod>2024-09-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://xjjeffery.github.io/linux/linux_system_programming/process_environment.html</loc>
+         <lastmod>2024-09-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://xjjeffery.github.io/linux/linux_system_programming/standard_io.html</loc>
-         <lastmod>2024-09-08</lastmod>
+         <lastmod>2024-09-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://xjjeffery.github.io/linux/linux_system_programming/system_data_files_and_info.html</loc>
+         <lastmod>2024-09-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://xjjeffery.github.io/linux/linux_system_programming/unix_system_overview.html</loc>
-         <lastmod>2024-09-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://xjjeffery.github.io/linux/vbird_linux_basics/shell_and_shell_script.html</loc>
-         <lastmod>2024-09-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://xjjeffery.github.io/readed_books/c_primer_plus.html</loc>
-         <lastmod>2024-09-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://xjjeffery.github.io/readed_books/linux_high_performance_server_programming.html</loc>
-         <lastmod>2024-09-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://xjjeffery.github.io/readed_books/tcp_ip_network_programming.html</loc>
-         <lastmod>2024-09-08</lastmod>
+         <lastmod>2024-09-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

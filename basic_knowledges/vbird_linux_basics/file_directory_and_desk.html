@@ -10,7 +10,7 @@
         <meta name="author" content="xjjeffery">
       
       
-        <link rel="canonical" href="https://xjjeffery.github.io/linux/linux_system_programming/unix_system_overview.html">
+        <link rel="canonical" href="https://xjjeffery.github.io/basic_knowledges/vbird_linux_basics/file_directory_and_desk.html">
       
       
       
@@ -20,7 +20,7 @@
     
     
       
-        <title>Linux 系统编程 - xjjeffery 的个人网站</title>
+        <title>Linux 文件、目录和磁盘格式 - xjjeffery 的个人网站</title>
       
     
     
@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#linux-系统编程" class="md-skip">
+        <a href="#linux-文件目录和磁盘格式" class="md-skip">
           跳转至
         </a>
       
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Linux 系统编程
+              Linux 文件、目录和磁盘格式
             
           </span>
         </div>
@@ -338,7 +338,7 @@
   
   
     <li class="md-nav__item">
-      <a href="standard_io.html" class="md-nav__link">
+      <a href="../../linux/linux_system_programming/standard_io.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -359,7 +359,7 @@
   
   
     <li class="md-nav__item">
-      <a href="file_io.html" class="md-nav__link">
+      <a href="../../linux/linux_system_programming/file_io.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -380,7 +380,7 @@
   
   
     <li class="md-nav__item">
-      <a href="files_and_directories.html" class="md-nav__link">
+      <a href="../../linux/linux_system_programming/files_and_directories.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -401,7 +401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="system_data_files_and_info.html" class="md-nav__link">
+      <a href="../../linux/linux_system_programming/system_data_files_and_info.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -422,7 +422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="process_environment.html" class="md-nav__link">
+      <a href="../../linux/linux_system_programming/process_environment.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -607,46 +607,64 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#gcc" class="md-nav__link">
+  <a href="#磁盘与文件系统管理" class="md-nav__link">
     <span class="md-ellipsis">
-      GCC
+      磁盘与文件系统管理
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#make--makefile" class="md-nav__link">
-    <span class="md-ellipsis">
-      make &amp; Makefile
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#man-manual" class="md-nav__link">
-    <span class="md-ellipsis">
-      man manual
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#出错处理" class="md-nav__link">
-    <span class="md-ellipsis">
-      出错处理
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="出错处理">
+    <nav class="md-nav" aria-label="磁盘与文件系统管理">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#认识-linux-文件系统" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      认识 Linux 文件系统
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#与目录树的关系" class="md-nav__link">
+    <span class="md-ellipsis">
+      与目录树的关系
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ext2ext3ext4-文件的存取与日志式文件系统的功能" class="md-nav__link">
+    <span class="md-ellipsis">
+      ext2/ext3/ext4 文件的存取与日志式文件系统的功能
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      VFS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#文件系统的简单操作" class="md-nav__link">
+    <span class="md-ellipsis">
+      文件系统的简单操作
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#磁盘的分区格式化检验与挂载" class="md-nav__link">
+    <span class="md-ellipsis">
+      磁盘的分区、格式化、检验与挂载
     </span>
   </a>
   
@@ -684,83 +702,179 @@
 
 
 <!-- Page content -->
-<h1 id="linux-系统编程">Linux 系统编程<a class="headerlink" href="#linux-系统编程" title="Permanent link">&para;</a></h1>
-<p><strong>学习时间</strong>：2023 年 4 月 15 日</p>
-<p><strong>使用环境</strong>：Ubuntu 20.04 + gcc 编译器 + neovim 编辑器</p>
-<p><strong>学习来源</strong>：<a href="https://www.bilibili.com/video/BV1yJ411S7r6?">Linux 系统编程(李慧琴)</a></p>
-<p><strong>参考书籍</strong>：《Unix 环境高级编程》</p>
-<h2 id="gcc">GCC<a class="headerlink" href="#gcc" title="Permanent link">&para;</a></h2>
-<h2 id="make--makefile"><code>make</code> &amp; Makefile<a class="headerlink" href="#make--makefile" title="Permanent link">&para;</a></h2>
-<h2 id="man-manual">man manual<a class="headerlink" href="#man-manual" title="Permanent link">&para;</a></h2>
-<h2 id="出错处理">出错处理<a class="headerlink" href="#出错处理" title="Permanent link">&para;</a></h2>
-<p>当 Unix 系统函数出错时，通常会返回一个负值，而且整型变量 <code>errno</code> 通常被设置为具有特定信息的值。文件 <code>&lt;errno.h&gt;</code> 中定义了 <code>errno</code> 以及可以赋与它的各种变量。POSIX 和 ISO C 将 <code>errno</code> 定义为一个符号，它扩展成为一个可修改的整型左值。它可以是一个包含出错编号的整数，也可以是一个返回出错编号指针的函数。以前使用的定义是：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">extern</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">errno</span><span class="p">;</span>
-</code></pre></div>
-<p>但是在支持线程的环境中，多线程共享进程地址空间，每个线程都有属于它自己的局部 <code>errno</code> 以避免一个线程干扰另一个线程。例如，Linux 支持多线程存取 <code>errno</code>，将其定义为：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">extern</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="nf">__errno_location</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="cp">#define errno (*__errno_location())</span>
-</code></pre></div>
-<p>对于 <code>errno</code> 应当注意两条规则：</p>
-<ol>
-<li>如果没有出错，其值不会被例程清除。因此，仅当函数的返回值指明出错时，才检验其值。</li>
-<li>任何函数都不会将 <code>errno</code> 值设置为 0，而且在 <code>&lt;errno.h&gt;</code> 中定义的所有常量都不为 0。</li>
-</ol>
-<p>C 标准定义了两个函数用于打印错误信息：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">perror</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">);</span><span class="w"> </span><span class="c1">// 在标准错误中生成一条信息，以 s 开头，然后是一个冒号加空格，</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">                            </span><span class="c1">// 接着是 errno 值对应的出错消息</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">strerror</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">errnum</span><span class="p">);</span><span class="w"> </span><span class="c1">// 将 errnum 映射为一个出错消息字符串，并且返回此字符串的指针</span>
-</code></pre></div>
-<p><strong>代码使用示例</strong>：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;errno.h&gt;</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="s">&quot;tmp&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;r&quot;</span><span class="p">);</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fp</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="c1">// 方法一：出错的原因不直观</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="c1">// fprintf(stderr, &quot;open file failed : errno = %d\n&quot;, errno);  // 输出 open file failed : errno = 2</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="c1">// 方法二：perror 根据 errno 打印对于的错误信息，参数是用户自定义的字符串</span>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="c1">//         函数原型为 void perror(const char* s);</span>
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="c1">// perror(&quot;open file failed&quot;); // 输出 open file failed: No such file or directory</span>
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="c1">// 方法三：使用 strerror 将某个 errno 转换成对应的错误信息</span>
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span><span class="c1">//         函数原型 char *strerror(int errnum);</span>
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;open file failed: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">strerror</span><span class="p">(</span><span class="n">errno</span><span class="p">));</span><span class="w"> </span><span class="c1">// 输出 open file failed: No such file or directory</span>
-<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>
-<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">    </span><span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
-<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>
-<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">  </span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;OK!&quot;</span><span class="p">);</span>
-<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">  </span><span class="n">fopen</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>
-<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>
-<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="p">}</span>
-</code></pre></div>
-<p>具体错误类型如下所示(只展示部分)：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cm">/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="cp">#ifndef _ASM_GENERIC_ERRNO_BASE_H</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="cp">#define _ASM_GENERIC_ERRNO_BASE_H</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="cp">#define EPERM    1  </span><span class="cm">/* Operation not permitted */</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="cp">#define ENOENT   2  </span><span class="cm">/* No such file or directory */</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="cp">#define ESRCH    3  </span><span class="cm">/* No such process */</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="cp">#define EINTR    4  </span><span class="cm">/* Interrupted system call */</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="cp">#define EIO      5  </span><span class="cm">/* I/O error */</span>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="cp">#define ENXIO    6  </span><span class="cm">/* No such device or address */</span>
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="cp">#define E2BIG    7  </span><span class="cm">/* Argument list too long */</span>
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="cp">#define ENOEXEC  8  </span><span class="cm">/* Exec format error */</span>
-<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="cp">#define EBADF    9  </span><span class="cm">/* Bad file number */</span>
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="cp">#define ECHILD   10 </span><span class="cm">/* No child processes */</span>
-<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>
-<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="c1">// ...</span>
-</code></pre></div>
-<h3 id="_1"><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h1 id="linux-文件目录和磁盘格式">Linux 文件、目录和磁盘格式<a class="headerlink" href="#linux-文件目录和磁盘格式" title="Permanent link">&para;</a></h1>
+<h2 id="磁盘与文件系统管理">磁盘与文件系统管理<a class="headerlink" href="#磁盘与文件系统管理" title="Permanent link">&para;</a></h2>
+<h3 id="认识-linux-文件系统">认识 Linux 文件系统<a class="headerlink" href="#认识-linux-文件系统" title="Permanent link">&para;</a></h3>
+<p>在磁盘上设置一个文件系统之前必须对磁盘分区进行格式化，这因为每种文件系统所设置的文件属性/权限并不相同，为了存放这些文件所需的数据，就需要将分区进行格式化，已成为操作系统能够利用的文件系统格式。</p>
+<p>文件除了文件的实际内容外，还有很多的文件属性，它们是如何存放的呢 —— 在 Linux 系统中，会将文件权限和文件属性存放到 inode 中，而文件的实际数据则存放在数据块中。除此之外，文件系统中还有一个超级区块会记录整个文件系统的整体信息，这三个数据的意义如下：</p>
+<ul>
+<li><strong>超级区块</strong>：记录文件系统的整体信息，包括 inode 与数据块的总量、使用量、剩余量，以及文件系统的格式与相关信息等</li>
+<li><strong>inode</strong>：记录文件的属性，一个文件占用一个 inode，同时记录此文件的数据所在的区块号码</li>
+<li><strong>数据区块</strong>：实际记录文件的内容，若文件太大，会占用多个区块</li>
+</ul>
+<p>由于每个文件只会占用一个 inode，并且 inode 中记录数据区块的号码，所以只要能够找打文件的 inode 的话，那么自然就知道存放数据的区块号码，也就能够读取出该文件的实际数据。</p>
+<p>文件系统在一开始就会将 inode 与数据块规划好了，除非重新格式化(或利用 <code>resize2fs</code> 等命令修改其大小)，否则 inode 和数据区块固定后就不再变动。但是如果将 inode 和数据区块都放在一起，在文件系统容量很大时，inode 和数据区块的数量将会很庞大，不容易管理。因此，ext2 文件系统格式化的时候基本上会区分多个区块群组，每个区块群组有独立的 inode、数据区块以及超级区块，如下图所示</p>
+<div align="center"> <a class="glightbox" href="../assets/vbird_linux_base/ch07/ext2_file_system.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../assets/vbird_linux_base/ch07/ext2_file_system.png"></a> </div>
+
+<p>文件系统的前面是一个启动扇区，这个启动扇区可以安装启动引导程序，因此我们可以将不同的引导程序安装在不同的文件系统做前端，而不用覆盖整块磁盘的唯一 MBR，这就能制作多重引导的环境。图中每个区块群组的内容如下：</p>
+<ul>
+<li><strong>数据区块</strong>：放置文件数据的地方，区块的大小与数量在格式化完就不能再修改(除非重新格式化)；每个区块内最多只能够放置一个文件的数据；如果文件大于区块的大小，则一个文件会占用多个区块，反之即，该区块的剩余容量也不运允许再被使用。在 ext2 文件系统中所支持的区块大小有 1K、2K 以及 4K 三种，不同的区块大小所能支持的最大磁盘容量以及最大单一我呢见容量是不相同的，如下所示：<ul>
+<li>1KB：最大单一文件的容量为 16GB，最大文件系统的容量为 2TB</li>
+<li>2KB：最大单一文件的容量为 256GB，最大文件系统的容量为 8TB</li>
+<li>4KB：最大单一文件的容量为 2TB，最大文件系统的容量为 16TB</li>
+</ul>
+</li>
+<li><strong>inode table</strong>：主要记录文件的属性以及该我呢见实际数据是放置在那几个区块内，基本上有以下这些内容：<ul>
+<li>该文加你的读写属性</li>
+<li>该文件的拥有者与用户组</li>
+<li>该文件的大小</li>
+<li>该文件建立或状态改变时间</li>
+<li>最近一次的读取时间</li>
+<li>最近修改的时间</li>
+<li>定义文件特性的标识，如 SetUID</li>
+<li>该文件真正内容的指向</li>
+</ul>
+</li>
+</ul>
+<div class="admonition question">
+<p class="admonition-title">ext2 的 inode、数据区块与文件大小的关系</p>
+<p>首先 inode 的数量与大小在格式化时就已经固定了，每个 inode 大小均固定在 128B (新的 ext4 与 xfs 设置为 256B)，每个文件仅会占用一个 inode，因此文件系统能够建立的文件数量与 inode 的数量有关。文件系统读取文件时需要先找到 inode，并分析 inode 所记录的权限与用户是否符合，若符合才能够读取区块的内容。</p>
+<p>inode 只有 128B，那么它是怎么记录一个大文件的信息的 —— 文件系统将 inode 记录区块号码的区域定义为 12 个直接、一个间接、一个双间接与一个三间接记录区，如下图所示:</p>
+<p><div align="center"> <a class="glightbox" href="../assets/vbird_linux_base/ch07/inode.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../assets/vbird_linux_base/ch07/inode.png"></a> </div></p>
+<p>通过这种方式可以计算出，ext2 区块格式为 1K 时，能够容纳的最大文件时 16GB，与上述说的是一致的。</p>
+</div>
+<ul>
+<li><strong>Superblock</strong>：记录整个文件系统相关信息的地方，没有超级区块就没有这个文件系统，区块群组含有超级区块可能是对第一个区块群组内超级区块的备份，可以进行快速恢复，其记录的主要信息有：<ul>
+<li>数据区块与 inode 的数量</li>
+<li>未使用与已使用的 inode 与数据区块数量</li>
+<li>数据区块与 inode 的大小</li>
+<li>文件系统的挂载时间、最近一次写入数据的时间、最近一次检验磁盘的时间等文件系统的相关数据</li>
+<li>一个有效位数值，若此文件系统已被挂载，则有效位为 0，若未被挂载，则有效位为 1</li>
+</ul>
+</li>
+<li><strong>Filesystem Description</strong>：描述每个区块群组的开始与结束的区块，以及说明每个区段分分别介于哪一个区块之间</li>
+<li><strong>区块对照表</strong>：通过区块对照表可以知道哪些区块是空的，可以快速找到可使用的空间来处理文件，也可以快速找到原本占用的区块，从而进行释放。</li>
+<li><strong>inode 对照表</strong>：与区块对照表的功能类似，记录使用与未使用的 inode 号码</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>对于 ext 系统超级区块的信息查询，可以使用 <code>dumpe2fs</code> 命令，自己可以根据这个命令的输出结果进行分析。</p>
+</div>
+<h3 id="与目录树的关系">与目录树的关系<a class="headerlink" href="#与目录树的关系" title="Permanent link">&para;</a></h3>
+<p>在初步了解文件系统以后，现在需要考虑一个问题，文件和目录在文件系统中是如何记录数据的呢？</p>
+<ul>
+<li>当我们在 Linux 下的文件系统中建立一个目录时，文件系统会分配一个 inode 与至少一个区块给该目录。其中，inode 记录该目录的相关权限与属性，并可记录分配到的那块区块号码，而区块则是记录在这个目录下的文件名与该文件名占用的 inode 号码数据，如下图所示</li>
+</ul>
+<div align="center"> <a class="glightbox" href="../assets/vbird_linux_base/ch07/inode_for_directory.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../assets/vbird_linux_base/ch07/inode_for_directory.png"></a> </div>
+
+<ul>
+<li>当我们在 Linux 的 ext2 建立一个一般文件时，ext2 会分配一个 inode 与相对于该文件大小的区块数量给该文件。假设一个区块大小是 4K，建立一个 100KB 的文件，文件系统会分配一个 inode 与 25 个区块来存储该文件</li>
+</ul>
+<p>通过上述的了解，文件名是记录在目录的区块中，所以新增、删除、修改文件名会改变区块中的数据，因此必须需要目录具有 w 权限。要读取某个文件时，就务必会经过目录的 inode 与区块，然后才能够找到那个待读取文件的 inode 号码，最终才能读取到文件的区块中的数据。以读取 <code>/etc/passwd</code> 为例，读取的流程如下：</p>
+<ul>
+<li>通过挂载点的信息找到 inode 号码为 XXX 的根目录 inode，且 inode 规范的权限让我们可以读取该区块的内容</li>
+<li>经过上一步获取区块的好，在区块中找到内容有 <code>etc/</code> 目录的 inode 号码</li>
+<li>读取 <code>etc/</code> 的 inode 号码得知用户对此目录的权限，具有 r 和 x 的权限，因此可以读取 <code>etc/</code> 的区块内容</li>
+<li>经过上一步获取区块号码，找到区块中内容时 <code>passwd</code> 文件的 inode 号码</li>
+<li>读取 <code>passwd</code> 的 inode 号码得到用户对此文件的权限，具有 r 的权限，因此可以读取 <code>passwd</code> 的区块内容</li>
+<li>最后将区块中的数据读取出来</li>
+</ul>
+<h3 id="ext2ext3ext4-文件的存取与日志式文件系统的功能">ext2/ext3/ext4 文件的存取与日志式文件系统的功能<a class="headerlink" href="#ext2ext3ext4-文件的存取与日志式文件系统的功能" title="Permanent link">&para;</a></h3>
+<p>新建一个文件或目录，文件系统的处理方式如下：</p>
+<ul>
+<li>先确定用户对于欲新增文件的目录是否具有 w 与 x 的权限，若有的话才能新增</li>
+<li>根据 inode 对照表找到没有使用的 inode 号码，并将新文件的权限和属性写入</li>
+<li>根据区块对照表找到没有使用的区块号码，并将实际的数据写入区块中，且更新 inode 的区块指向数据</li>
+<li>将刚刚写入的 inode 与区块数据同步更新 inode 对照表与区块对照表，并更新超级区块的内容</li>
+</ul>
+<p>如果在最后一步时，因为某些原因导致系统中断，此时就会发生元数据的内容与实际数据存放区产生不一致的情况。这在早期时借由超级区块当中记录的有效位与文件系统状态等来判断是否强制进行数据一致性检查，这种方式的检查很废时。因此就有了日志式文件系统，其方式如下：</p>
+<ul>
+<li>预备：当系统要写入一个文件时，会先在日志记录区块中记录某个文件准备要写入的信息</li>
+<li>实际写入：开始写入文件的权限和数据，开始更新 metadata 的数据</li>
+<li>结束：完成数据与 metadata 的更新后，在日志记录区块当中完成该文件的记录</li>
+</ul>
+<p>在这样的程序中，如果在数据的记录过程中发生问题，系统只要区检查日志记录区块，就可以知道哪个文件发生了问题，针对该问题来做一致性的检查即可，不需要对整个文件系统进行检查。</p>
+<h3 id="vfs">VFS<a class="headerlink" href="#vfs" title="Permanent link">&para;</a></h3>
+<p>Linux 的内核时通过一个名为 Virtual Filesystem Switch 的内核功能去读取文件系统，也就是说，整个 Linux 识别的文件系统其实都是 VFS 在进行管理，我们并不需要知道每个硬盘分区上面的文件系统是什么，VFS 会主动帮我们做好读取的准备。如下图所示</p>
+<div align="center"> <a class="glightbox" href="../assets/vbird_linux_base/ch07/vfs.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../assets/vbird_linux_base/ch07/vfs.png"></a> </div>
+
+<h3 id="文件系统的简单操作">文件系统的简单操作<a class="headerlink" href="#文件系统的简单操作" title="Permanent link">&para;</a></h3>
+<p>磁盘的整体数据存储在超级区块中，可以使用 <code>df</code> 命令来查看文件系统的整体磁盘使用量，常用的选项有：</p>
+<ul>
+<li><code>-a</code>：列出所有的文件系统。包括系统特有的 <code>/proc</code> 等文件系统</li>
+<li><code>-k</code>：以 KBytes 的容量显示各文件系统</li>
+<li><code>-m</code>：以 MBytes 的容量显示各文件系统</li>
+<li><code>-h</code>：以人们较易阅读的 GBytes、MBytes、KBytes 等格式自行显示</li>
+<li><code>-H</code>：以 M=1000K 替换 M=1024K 的进位方式</li>
+<li><code>-T</code>：连同该硬盘分区的文件系统名称也列出</li>
+<li><code>-i</code>：不用磁盘容量，而以 inode 的数量来显示</li>
+</ul>
+<p>查看文件系统的磁盘使用量一般使用 <code>du</code> 命令来查看，常用的选项有：</p>
+<ul>
+<li><code>-a</code>：列出所有的文件与目录容量，因为默认仅统计目录下面的文件量</li>
+<li><code>-h</code>：以人们易读的容量格式显示</li>
+<li><code>-s</code>：仅列出总量，而不列出每个各别的目录占用容量</li>
+<li><code>-S</code>：不包括子目录下的总计，与 <code>-s</code> 有点差别</li>
+<li><code>-k</code>：以 KBytes 列出容量显示</li>
+<li><code>-m</code>：以 MBytes 列出容量显示</li>
+</ul>
+<p>在 Linux 下面的链接文件有两种：一种是类似 Windows 的快捷方式功能的文件，可以让你快速地链接到目标文件，这种称为符号链接；另一种则是通过文件系统的 inode 链接来产生新文件名，而不是产生新文件，这种称为硬链接。</p>
+<p><strong>硬链接</strong>：每个文件都会占用一个 inode，文件内容由 inode 的记录指向；想要读取该文件，必须要经过目录记录的文件名来指向正确的 inode 号码才能读取。简单地说，硬链接只是在某个目录下新增一个文件名链接到某已使用的 inode 号码关联记录而已，如下图所示</p>
+<div align="center"> <a class="glightbox" href="../assets/vbird_linux_base/ch07/hard_link.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../assets/vbird_linux_base/ch07/hard_link.png"></a> </div>
+
+<p>如上图所示，将任何一个文件名删除，其实 inode 与区块还是存在的，可以通过另一个文件名来读取到正确的文件数据。并且新增一个硬链接，磁盘的空间与 inode 的数目都不会改变，只是在目录下的区块中多写入一个关联数据而已。</p>
+<p>硬链接还有几个限制：不能跨文件系统、不能链接目录。</p>
+<p><strong>符号链接</strong>：建立一个独立的文件，这个文件会让数据的读取指向它链接的哪个文件的文件名。当源文件被删除以后，符号链接就打不开了，符号链接实际找到是原始文件名。如下图所示</p>
+<div align="center"> <a class="glightbox" href="../assets/vbird_linux_base/ch07/symbolic_link.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../assets/vbird_linux_base/ch07/symbolic_link.png"></a> </div>
+
+<p>符号链接可以与 Windows 的快捷方式划上等号，并且会占用 inode 与区块，记录的是链接的文件名。</p>
+<p>建立链接的命令是 <code>ln</code>，基本使用语法是 <code>ln [选项] 源文件 目标文件</code>。如果没有任何选项，则会建立的是硬链接，加上 <code>-s</code> 选项就会建立符号链接。</p>
+<h3 id="磁盘的分区格式化检验与挂载">磁盘的分区、格式化、检验与挂载<a class="headerlink" href="#磁盘的分区格式化检验与挂载" title="Permanent link">&para;</a></h3>
+<p>要想在系统新增一块磁盘，应该需要操作的有以下几个：</p>
+<ul>
+<li>对磁盘进行划分，以建立可用的硬盘分区</li>
+<li>对硬盘分区进行格式化，以建立系统可用的文件系统</li>
+<li>若想要仔细一点，则可对刚刚建立好的文件系统进行检验</li>
+<li>在 Linux 系统上，需要建立挂载点(即目录)，并将它挂载上来</li>
+</ul>
+<p>划分磁盘之前的观察磁盘的分区状态，有以下几个指令可以使用：</p>
+<ul>
+<li><code>lsblk</code>：列出系统上的所有磁盘列表<ul>
+<li><code>-d</code>：仅列出磁盘本身，并不会列出该磁盘的分区数据</li>
+<li><code>-f</code>：同时列出该磁盘内的文件系统名称</li>
+<li><code>-i</code>：使用 ASCII 的字符输出，不要使用复杂的编码</li>
+<li><code>-m</code>：同时输出该设备在 <code>/dev</code> 下面的权限信息</li>
+<li><code>-p</code>：列出该设备的完整文件名，而不仅列出最后的名字而已</li>
+<li><code>-t</code>：列出该磁盘设备的详细数据，包括磁盘阵列机制，预读写的数据量大小等</li>
+</ul>
+</li>
+<li><code>blkid</code>：列出设备的 UUID 等参数</li>
+<li><code>parted</code>：累出磁盘的分区表类型与分区信息</li>
+</ul>
+<p>在之前了解到分区的方式有两种：MBR 和 GPT，所以不同的分区方式使用不同的命令，对于 MBR 的分区方式使用 <code>fdisk</code> 命令，而 GPT 分区方式使用 <code>gdisk</code> 命令，具体的操作可以通过内部的提示获取，两个命令的使用方式基本相同，如下图</p>
+<div align="center"> <a class="glightbox" href="../assets/vbird_linux_base/ch07/fdisk.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../assets/vbird_linux_base/ch07/fdisk.png"></a> </div>
+
+<p>分区设置完毕后并不会立即被更新，需要通过 <code>partprobe -s</code> 来更新磁盘的分区表信息。</p>
+<p>分区建立完毕以后，需要进行文件系统的格式化，格式化的命令是 <code>mkfs</code>，具体的使用语法可以查阅 man 手册。</p>
+<p>建立完文件系统以后就需要进行挂载，挂载前需要确定几个事情：</p>
+<ul>
+<li>单一文件系统不应该被重复挂载在不同的挂载点(目录)中</li>
+<li>单一目录不应该重复挂载多个文件系统</li>
+<li>要作为挂载点的目录，理论上应该都是空目录才行，如果不是空目录，对其进行挂载，则原先的数据会暂时被隐藏，等到此分区被卸载才能正常显示</li>
+</ul>
+<p>挂载的命令是 <code>mount</code>，使用的基本语法为 <code>mount 设备名/UUID 挂载点</code>。卸载的命令则是 <code>umount</code>，使用的基本语法为 <code>umount [选项] 设备名或挂载点</code>，卸载挂载点必须在此文件系统之外。</p>
+<p>上述挂载完以后，在重启系统后还是需要手动重新挂载，并不是一个系统启动后自动挂载的方式。在每次进入 Linux 系统就自动挂载，可以修改 <code>/etc/fstab</code> 文件，修改有一些限制：</p>
+<ul>
+<li>根目录是必须挂载的，而且一定要优先于其他挂载点被挂载进来</li>
+<li>其他挂载点必须为已建立的目录，可任意指定，但一定要遵守必需的系统目录架构原则</li>
+<li>所有挂载点在同一时间之内只能挂载一次</li>
+<li>所有硬盘分区在同一时间之内，只能挂载一次</li>
+<li>如若进行卸载，必须先将工作目录移到挂载点之外</li>
+</ul>
+<p>此文件的内容如下图所示:</p>
+<div align="center"> <a class="glightbox" href="../assets/vbird_linux_base/ch07/fstab.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../assets/vbird_linux_base/ch07/fstab.png"></a> </div>
+
+<p>最后执行 <code>mount -a</code> 可以依照 <code>/etc/fstab</code> 文件的数据将所有未挂载的磁盘都挂载上来。</p>
 
 <!-- Source file information -->
 
